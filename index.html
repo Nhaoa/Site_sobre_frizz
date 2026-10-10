@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pente de Madeira: Ciência ou Propaganda? | Consultoria Inhangapi</title>
+  <title>Pente de Madeira: Ciência ou Propaganda? | UEPA Campus XX</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,11 +29,6 @@
               600: '#8c6239',
               800: '#5c3a1a',
               900: '#3c240e',
-            },
-            eletro: {
-              amber: '#f59e0b',
-              cyan: '#06b6d4',
-              red: '#ef4444'
             }
           },
           fontFamily: {
@@ -44,714 +40,658 @@
     }
   </script>
   <style>
-    /* Custom styling for sleek canvas & glassmorphism */
     .glass-card {
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-    }
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #bc9b72;
-      border-radius: 9999px;
     }
   </style>
 </head>
 <body class="bg-[#FAF7F2] text-stone-800 antialiased font-sans selection:bg-floresta-100 selection:text-floresta-800">
 
+  <!-- Cabeçalho Institucional -->
   <header class="sticky top-0 z-50 glass-card border-b border-madeira-200 shadow-sm transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-floresta-700 to-madeira-800 text-amber-100 flex items-center justify-center font-serif text-xl font-bold shadow-md">
-          ☿
+          UEPA
         </div>
         <div>
-          <span class="text-xs font-bold tracking-widest text-floresta-700 uppercase block">Consultoria Científica • Inhangapi/PA</span>
-          <h1 class="text-lg sm:text-xl font-extrabold text-stone-900 tracking-tight leading-tight">Ciência do Pente de Madeira</h1>
+          <span class="text-[11px] font-bold tracking-widest text-floresta-700 uppercase block">Turma 2024 • Castanhal • Campus XX</span>
+          <h1 class="text-base sm:text-lg font-extrabold text-stone-900 tracking-tight leading-tight">Pente de Madeira: Ciência ou Propaganda?</h1>
         </div>
       </div>
 
-      <!-- Navigation Tabs -->
-      <nav class="hidden md:flex items-center gap-1 bg-stone-100/90 p-1.5 rounded-2xl border border-stone-200/80">
-        <button onclick="switchTab('veredito')" id="nav-veredito" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-floresta-800 shadow-sm">
-          ⚖️ Veredito & Frase
+      <!-- Abas de Navegação -->
+      <nav class="hidden lg:flex items-center gap-1 bg-stone-100/90 p-1.5 rounded-2xl border border-stone-200/80">
+        <button onclick="switchTab('veredito')" id="nav-veredito" class="tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold transition-all bg-white text-floresta-800 shadow-sm">
+          ⚖️ Parecer & Equipa
         </button>
-        <button onclick="switchTab('simulador')" id="nav-simulador" class="tab-btn px-4 py-2 rounded-xl text-sm font-medium text-stone-600 hover:text-stone-900 transition-all">
-          ⚡ Laboratório & Simulador
+        <button onclick="switchTab('simulador')" id="nav-simulador" class="tab-btn px-3 py-1.5 rounded-xl text-xs font-medium text-stone-600 hover:text-stone-900 transition-all">
+          ⚡ Comparador Simultâneo
         </button>
-        <button onclick="switchTab('evidencias')" id="nav-evidencias" class="tab-btn px-4 py-2 rounded-xl text-sm font-medium text-stone-600 hover:text-stone-900 transition-all">
-          📑 4 Evidências (Cartões)
+        <button onclick="switchTab('cartoes')" id="nav-cartoes" class="tab-btn px-3 py-1.5 rounded-xl text-xs font-medium text-stone-600 hover:text-stone-900 transition-all">
+          📑 4 Cartões (A, B, C e D)
         </button>
-        <button onclick="switchTab('parecer')" id="nav-parecer" class="tab-btn px-4 py-2 rounded-xl text-sm font-medium text-stone-600 hover:text-stone-900 transition-all">
+        <button onclick="switchTab('parecer')" id="nav-parecer" class="tab-btn px-3 py-1.5 rounded-xl text-xs font-medium text-stone-600 hover:text-stone-900 transition-all">
           🪵 Recomendações & Quiz
         </button>
       </nav>
 
-      <!-- Mobile Menu Button -->
-      <div class="md:hidden flex items-center">
-        <select onchange="switchTab(this.value)" class="text-sm font-medium bg-stone-100 border border-stone-300 rounded-lg p-2 text-stone-700">
-          <option value="veredito">⚖️ Veredito & Frase</option>
-          <option value="simulador">⚡ Simulador</option>
-          <option value="evidencias">📑 Evidências A-D</option>
+      <!-- Seletor Mobile -->
+      <div class="lg:hidden flex items-center">
+        <select onchange="switchTab(this.value)" class="text-xs font-semibold bg-stone-100 border border-stone-300 rounded-lg p-2 text-stone-700">
+          <option value="veredito">⚖️ Parecer & Equipa</option>
+          <option value="simulador">⚡ Comparador Simultâneo</option>
+          <option value="cartoes">📑 4 Cartões (A-D)</option>
           <option value="parecer">🪵 Recomendações & Quiz</option>
         </select>
       </div>
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
 
-    <!-- Top Hero Banner -->
-    <section class="rounded-3xl bg-gradient-to-r from-floresta-900 via-floresta-800 to-madeira-900 text-white p-6 sm:p-10 relative overflow-hidden shadow-xl border border-emerald-950">
-      <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none translate-x-10 translate-y-10">
-        <svg width="400" height="400" viewBox="0 0 200 200" fill="currentColor">
-          <path d="M45,-68C58,-60,68,-47,74,-32C81,-17,84,0,80,16C76,32,65,47,51,57C37,68,20,74,2,72C-16,70,-31,60,-46,50C-60,39,-73,28,-78,13C-83,-3,-80,-23,-70,-38C-60,-52,-43,-62,-27,-68C-11,-74,4,-76,20,-73C35,-69,45,-68,45,-68Z" />
-        </svg>
-      </div>
-      <div class="relative z-10 max-w-3xl space-y-3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-semibold tracking-wide uppercase">
-          Cooperativa de Manejo Sustentável • Inhangapi (Pará)
+    <!-- Card Académico / Identificação do Trabalho -->
+    <section class="rounded-3xl bg-gradient-to-r from-floresta-900 via-floresta-800 to-madeira-900 text-white p-6 sm:p-8 relative overflow-hidden shadow-xl border border-emerald-950">
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <div class="lg:col-span-7 space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-[11px] font-bold uppercase tracking-wider">
+            Universidade do Estado do Pará • Campus XX • Castanhal
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight font-serif">
+            Uma Promessa Sustentável: Pente de Madeira
+          </h2>
+          <p class="text-stone-300 text-xs sm:text-sm leading-relaxed">
+            Disciplina: <strong>INTRODUÇÃO À TEORIA ELETROMAGNÉTICA</strong><br>
+            Docente: <strong>Prof. Dr. Penn Lee Menezes Rodrigues</strong>
+          </p>
         </div>
-        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight font-serif">
-          Pente de Madeira: Ciência ou Propaganda?
-        </h2>
-        <p class="text-stone-300 text-sm sm:text-base leading-relaxed">
-          Relatório técnico de física aplicada e design de comunicação. Avaliação experimental sobre eletrização por atrito, série triboelétrica, higroscopia na Amazônia e a biofísica do frizz.
-        </p>
+
+        <div class="lg:col-span-5 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/15 space-y-1.5 text-xs">
+          <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-300 block mb-1">
+            Autores do Projeto (Turma 2024 - Ordem Alfabética):
+          </span>
+          <ul class="space-y-1 font-medium text-stone-100">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Ademir Vilhena Barbosa Neto</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Izabele Wende Souza de Moraes</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Kamila Da Rocha Ribeiro</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Sandro de Jesus da Silva Alencar</li>
+          </ul>
+        </div>
       </div>
     </section>
 
+    <!-- ABA 1: VEREDITO & FRASE -->
     <div id="section-veredito" class="tab-content block space-y-8">
-      
-      <!-- Box do Veredito Oficial -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div class="lg:col-span-7 space-y-6">
           <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200">
-            <div class="flex items-center gap-3 mb-4">
+            <div class="flex items-center gap-3 mb-3">
               <span class="px-3 py-1 text-xs font-bold uppercase rounded-lg bg-amber-100 text-amber-800 border border-amber-300">
-                Parecer Oficial da Consultoria
+                Parecer de Consultoria para a Cooperativa de Inhangapi
               </span>
-              <span class="text-xs text-stone-500 font-medium">Protocolo FÍS-COOP-01</span>
             </div>
-            <h3 class="text-2xl font-bold text-stone-900 mb-3">
-              Decisão: <span class="text-amber-700 underline decoration-amber-400 decoration-4 underline-offset-4">A frase PRECISA SER REFORMULADA</span>
+            <h3 class="text-2xl font-bold text-stone-900 mb-2">
+              Decisão: <span class="text-amber-700 underline decoration-amber-400 decoration-4 underline-offset-4">A frase PRECISA DE SER REFORMULADA</span>
             </h3>
-            <p class="text-stone-600 leading-relaxed mb-4">
-              A alegação original da cooperativa <strong class="text-stone-800">não deve ser abandonada</strong>, pois há uma base biofísica real que concede ao pente de madeira vantagens expressivas sobre os plásticos convencionais (PVC/Polietileno). Entretanto, ela <strong class="text-stone-800">não pode ser mantida como promessa absoluta ou milagrosa</strong> ("combate o frizz").
+            <p class="text-stone-600 text-xs sm:text-sm leading-relaxed mb-4">
+              A alegação original <strong class="text-stone-800">não deve ser abandonada</strong>, pois existe uma base física sólida que confere ao pente de madeira vantagens expressivas sobre plásticos convencionais como o PVC e o polietileno. Porém, <strong class="text-stone-800">não pode ser mantida como promessa absoluta</strong> ("combatem o frizz").
             </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200/70">
-                <h4 class="font-bold text-emerald-950 text-sm flex items-center gap-2 mb-1">
-                  <span class="text-emerald-700 text-base">✓</span> O que a Ciência Comprova
+                <h4 class="font-bold text-emerald-950 text-xs flex items-center gap-1.5 mb-1">
+                  <span>✓</span> O que a Física Comprova
                 </h4>
-                <p class="text-xs text-emerald-900/80 leading-relaxed">
-                  A madeira natural troca muito menos cargas com o cabelo (Série Triboelétrica próxima) e sua umidade higroscópica dissipa a eletricidade estática rapidamente, evitando a repulsão eletrostática dos fios.
+                <p class="text-[11px] text-emerald-900/80 leading-relaxed">
+                  Cabelo e madeira encontram-se próximos na série triboelétrica, resultando numa menor transferência líquida de cargas. Além disso, a higroscopia da madeira no clima paraense dissipa a eletricidade estática com rapidez.
                 </p>
               </div>
               <div class="p-4 rounded-2xl bg-rose-50 border border-rose-200/70">
-                <h4 class="font-bold text-rose-950 text-sm flex items-center gap-2 mb-1">
-                  <span class="text-rose-700 text-base">⚠️</span> Por que Não é Milagre
+                <h4 class="font-bold text-rose-950 text-xs flex items-center gap-1.5 mb-1">
+                  <span>⚠️</span> Limites Científicos
                 </h4>
-                <p class="text-xs text-rose-900/80 leading-relaxed">
-                  O frizz é um fenômeno <strong>multifatorial</strong>. Ressecamento, quebra, formato espiralado/crespo e porosidade continuam gerando frizz sem relação com cargas. Além disso, se o pente receber verniz plástico, o benefício desaparece.
+                <p class="text-[11px] text-rose-900/80 leading-relaxed">
+                  O frizz é multifatorial: quebra cuticular, ressecamento, curvatura natural e porosidade continuam a gerar desalinhamento capilar sem relação direta com cargas elétricas.
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- Comparativo de Frases -->
-          <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200 space-y-6">
-            <h3 class="text-lg font-bold text-stone-900 flex items-center gap-2">
-              <span>✍️</span> Da Propaganda Imprecisa à Comunicação Ética
+          <!-- Reformulação da Frase -->
+          <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200 space-y-4">
+            <h3 class="text-base font-bold text-stone-900 flex items-center gap-2">
+              <span>✍️</span> Comunicação Cientificamente Defensável
             </h3>
-
-            <!-- Frase Original -->
-            <div class="p-4 rounded-2xl bg-stone-50 border border-dashed border-stone-300 relative">
-              <span class="absolute -top-3 left-4 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-stone-200 text-stone-700 uppercase">
-                Original (Vulnerável a questionamentos)
-              </span>
-              <p class="font-serif italic text-stone-700 text-base sm:text-lg mt-2">
-                "Sustentável da raiz às pontas: nossos pentes de madeira te deixam penteado e <span class="bg-red-100 text-red-800 px-1 rounded line-through">combatem o frizz</span>."
+            <div class="p-4 rounded-2xl bg-stone-50 border border-dashed border-stone-300">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-stone-200 text-stone-700 uppercase">Original</span>
+              <p class="font-serif italic text-stone-700 text-sm sm:text-base mt-1.5">
+                "Sustentável da raiz às pontas: os nossos pentes de madeira deixam-te penteado e <span class="bg-red-100 text-red-800 px-1 rounded line-through">combatem o frizz</span>."
               </p>
-              <div class="mt-2 text-xs text-stone-500">
-                <strong>Falha:</strong> Generalização indevida que sugere solução definitiva para todas as causas do frizz e desconsidera variações de acabamento e umidade.
-              </div>
             </div>
 
-            <!-- Novas Propostas -->
-            <div class="space-y-3">
-              <div class="p-4 rounded-2xl bg-emerald-50/70 border-2 border-emerald-500/50 relative">
-                <span class="absolute -top-3 left-4 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-700 text-white uppercase tracking-wider">
-                  Proposta Principal Recomendada
-                </span>
-                <p class="font-serif font-bold text-emerald-950 text-base sm:text-lg mt-2">
-                  "Sustentável da raiz às pontas: nossos pentes de madeira reduzem a eletricidade estática e alinham seus fios naturalmente."
-                </p>
-                <div class="mt-2 text-xs text-emerald-800 leading-relaxed">
-                  <strong>Por que funciona:</strong> Troca a promessa cosmética generalista ("combate o frizz") pelo benefício eletrostático estrito e verdadeiro comprovado em laboratório.
-                </div>
-              </div>
-
-              <!-- Opção Alternativa com sotaque regional -->
-              <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-300 relative">
-                <span class="absolute -top-3 left-4 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-700 text-amber-50 uppercase tracking-wider">
-                  Opção Alternativa (Valorização Amazônica)
-                </span>
-                <p class="font-serif font-bold text-amber-950 text-base mt-2">
-                  "Madeira de reflorestamento com o toque da Amazônia: menos atrito estático, mais alinhamento e respeito à sua essência."
-                </p>
-              </div>
+            <div class="p-4 rounded-2xl bg-emerald-50/70 border-2 border-emerald-500/50">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-700 text-white uppercase tracking-wider">Nova Versão Proposta</span>
+              <p class="font-serif font-bold text-emerald-950 text-sm sm:text-base mt-1.5">
+                "Sustentável da raiz às pontas: os nossos pentes de madeira reduzem a eletricidade estática e alinham os fios naturalmente."
+              </p>
+              <p class="mt-1 text-[11px] text-emerald-800">
+                A nova versão substitui a promessa cosmética generalista por factos comprovados em laboratório: atenuação da carga estática e alinhamento mecânico suave dos fios.
+              </p>
             </div>
           </div>
         </div>
 
-        <!-- Coluna Lateral: Resumo Executivo -->
-        <div class="lg:col-span-5 space-y-6">
-          <div class="bg-gradient-to-br from-madeira-100 to-white rounded-3xl p-6 sm:p-7 border border-madeira-200 shadow-sm space-y-5">
-            <h4 class="font-bold text-madeira-900 text-base flex items-center gap-2">
-              <span>📋</span> Mapa Rápido da Argumentação
+        <div class="lg:col-span-5 space-y-4">
+          <div class="bg-gradient-to-br from-madeira-100 to-white rounded-3xl p-6 border border-madeira-200 shadow-sm space-y-3">
+            <h4 class="font-bold text-madeira-900 text-sm flex items-center gap-2">
+              <span>📋</span> Síntese das Evidências dos 4 Cartões
             </h4>
-
-            <div class="space-y-4">
-              <div class="flex items-start gap-3">
-                <div class="w-7 h-7 rounded-full bg-floresta-700 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs">
-                  1
-                </div>
-                <div>
-                  <h5 class="text-sm font-bold text-stone-800">Menor Separação de Cargas (Cartão A)</h5>
-                  <p class="text-xs text-stone-600 mt-0.5">Na Série Triboelétrica, cabelo e madeira têm afinidades eletrônicas mais próximas que cabelo e plástico PVC/Teflon.</p>
-                </div>
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 bg-white rounded-xl border border-stone-200">
+                <strong>Cartão A:</strong> Cabelo e madeira estão próximos na série triboelétrica, resultando numa menor troca de eletrões por contacto mecânico.
               </div>
-
-              <div class="flex items-start gap-3">
-                <div class="w-7 h-7 rounded-full bg-floresta-700 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs">
-                  2
-                </div>
-                <div>
-                  <h5 class="text-sm font-bold text-stone-800">Dissipação em Testes (Cartão B)</h5>
-                  <p class="text-xs text-stone-600 mt-0.5">Cabelo x Madeira dissipa a carga residual em curto intervalo; no plástico convencional, a carga fica retida por muito tempo.</p>
-                </div>
+              <div class="p-2.5 bg-white rounded-xl border border-stone-200">
+                <strong>Cartão B:</strong> A carga na madeira é mais fraca e dissipa-se rapidamente; no plástico, persiste retida durante um longo intervalo.
               </div>
-
-              <div class="flex items-start gap-3">
-                <div class="w-7 h-7 rounded-full bg-floresta-700 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs">
-                  3
-                </div>
-                <div>
-                  <h5 class="text-sm font-bold text-stone-800">Repulsão Eletrostática dos Fios (Cartão C)</h5>
-                  <p class="text-xs text-stone-600 mt-0.5">Fios eletrizados com cargas de mesmo sinal se repelem, afastando-se do feixe. A madeira ameniza esse gatilho mecânico.</p>
-                </div>
+              <div class="p-2.5 bg-white rounded-xl border border-stone-200">
+                <strong>Cartão C:</strong> Fios carregados com cargas do mesmo sinal repelem-se mutuamente, afastando-se do feixe alinhado.
               </div>
-
-              <div class="flex items-start gap-3">
-                <div class="w-7 h-7 rounded-full bg-floresta-700 text-white flex-shrink-0 flex items-center justify-center font-bold text-xs">
-                  4
-                </div>
-                <div>
-                  <h5 class="text-sm font-bold text-stone-800">Higroscopia de Inhangapi (Cartão D)</h5>
-                  <p class="text-xs text-stone-600 mt-0.5">O clima úmido do Pará aumenta a umidade de equilíbrio da madeira, diminuindo sua resistividade e drenando cargas estáticas.</p>
-                </div>
+              <div class="p-2.5 bg-white rounded-xl border border-stone-200">
+                <strong>Cartão D:</strong> A humidade amazónica reduz a resistividade da madeira pura; vernizes sintéticos anulam essa vantagem ao atuar como plástico.
               </div>
             </div>
-
-            <button onclick="switchTab('simulador')" class="w-full mt-4 py-3 rounded-2xl bg-floresta-700 hover:bg-floresta-800 text-white text-sm font-bold shadow-md transition-all flex items-center justify-center gap-2">
-              Testar no Simulador Interativo ➔
+            <button onclick="switchTab('simulador')" class="w-full py-2.5 rounded-xl bg-floresta-700 hover:bg-floresta-800 text-white text-xs font-bold transition-all mt-2">
+              Testar no Simulador Duplo ➔
             </button>
           </div>
         </div>
       </div>
     </div>
 
-    <div id="section-simulador" class="tab-content hidden space-y-8">
+    <!-- ABA 2: COMPARADOR SIMULTÂNEO & EFEITO DAS PONTAS -->
+    <div id="section-simulador" class="tab-content hidden space-y-6">
       
-      <!-- Topo do Simulador -->
-      <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-200 pb-5">
+      <!-- O Efeito das Pontas -->
+      <section class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="px-2.5 py-0.5 text-[10px] font-extrabold uppercase rounded-lg bg-purple-100 text-purple-900 border border-purple-200">
+            Fenómeno Eletrostático
+          </span>
+          <span class="text-xs text-stone-500 font-semibold">Densidade Superficial de Carga nas Extremidades</span>
+        </div>
+        <h3 class="text-lg sm:text-xl font-extrabold text-stone-900 mb-2">
+          O "Efeito das Pontas" no Cabelo: Por que Razão as Pontas Espetam?
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-stone-600 leading-relaxed">
+          <div class="p-3 bg-stone-50 rounded-xl border border-stone-200">
+            <strong class="text-stone-900 block mb-1">1. Concentração de Cargas:</strong>
+            O poder das pontas demonstra que, em corpos eletrizados, as cargas livres acumulam-se preferencialmente em regiões afiladas ou com menor raio de curvatura.
+          </div>
+          <div class="p-3 bg-stone-50 rounded-xl border border-stone-200">
+            <strong class="text-stone-900 block mb-1">2. Geometria dos Fios:</strong>
+            As pontas capilares são muito finas em comparação com o comprimento da fibra, originando uma elevada concentração de densidade de carga elétrica no seu término.
+          </div>
+          <div class="p-3 bg-stone-50 rounded-xl border border-stone-200">
+            <strong class="text-stone-900 block mb-1">3. Repulsão Máxima:</strong>
+            Com maior densidade de carga concentrada nas pontas, a repulsão eletrostática mútua entre os fios atinge o seu ápice nesse ponto, abrindo o leque de fios espetados e rebeldes.
+          </div>
+        </div>
+      </section>
+
+      <!-- Painel do Simulador Duplo -->
+      <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-stone-200 pb-3">
           <div>
-            <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md">
-              Bancada de Ensaios Eletrostáticos
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
+              Bancada de Comparação em Tempo Real
             </span>
-            <h3 class="text-2xl font-extrabold text-stone-900 mt-1">
-              Simulador: Atrito, Cargas & Dinâmica Capilar
+            <h3 class="text-lg sm:text-xl font-extrabold text-stone-900 mt-1">
+              Simulação Simultânea: Experimento 1 vs Experimento 2
             </h3>
-            <p class="text-xs sm:text-sm text-stone-600 mt-0.5">
-              Experimente alterar os parâmetros do pente e veja em tempo real as cargas elétricas (+) e (-) fluindo e a reação mecânica dos fios de cabelo.
+          </div>
+          <span class="text-xs text-stone-500">Configure dois cenários e observe a dinâmica física lado a lado</span>
+        </div>
+
+        <!-- Controlos Lado a Lado -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+          
+          <!-- Experimento 1 -->
+          <div class="bg-stone-50 p-4 rounded-2xl border-2 border-emerald-600/60 space-y-3">
+            <div class="flex justify-between items-center border-b border-stone-200 pb-1.5">
+              <span class="font-bold text-xs uppercase text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">
+                Experimento 1 (Esquerda)
+              </span>
+              <span class="text-[11px] font-semibold text-stone-500">Madeira Natural / Pará</span>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Material do Pente</label>
+              <div class="grid grid-cols-2 gap-2">
+                <button type="button" onclick="setParamExp(1, 'material', 'madeira')" id="btn-exp1-mat-mad" class="p-2 rounded-xl border-2 text-xs font-bold transition-all border-emerald-700 bg-emerald-50 text-emerald-950">
+                  🪵 Madeira
+                </button>
+                <button type="button" onclick="setParamExp(1, 'material', 'pvc')" id="btn-exp1-mat-pvc" class="p-2 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold transition-all">
+                  🧪 Plástico PVC
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Humidade Relativa</label>
+              <div class="grid grid-cols-2 gap-2">
+                <button type="button" onclick="setParamExp(1, 'umidade', 'alta')" id="btn-exp1-umid-alta" class="p-1.5 rounded-xl border-2 text-xs font-bold transition-all border-emerald-700 bg-emerald-50 text-emerald-950">
+                  🌧️ Alta (~80% PA)
+                </button>
+                <button type="button" onclick="setParamExp(1, 'umidade', 'baixa')" id="btn-exp1-umid-baixa" class="p-1.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold transition-all">
+                  ☀️ Baixa (~30%)
+                </button>
+              </div>
+            </div>
+
+            <div id="container-exp1-acab">
+              <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Acabamento</label>
+              <div class="grid grid-cols-2 gap-2">
+                <button type="button" onclick="setParamExp(1, 'acabamento', 'natural')" id="btn-exp1-acab-nat" class="p-1.5 rounded-xl border-2 text-xs font-bold transition-all border-emerald-700 bg-emerald-50 text-emerald-950">
+                  Óleo Natural
+                </button>
+                <button type="button" onclick="setParamExp(1, 'acabamento', 'verniz')" id="btn-exp1-acab-vern" class="p-1.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold transition-all">
+                  Verniz Sintético
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experimento 2 -->
+          <div class="bg-stone-50 p-4 rounded-2xl border-2 border-cyan-600/60 space-y-3">
+            <div class="flex justify-between items-center border-b border-stone-200 pb-1.5">
+              <span class="font-bold text-xs uppercase text-cyan-800 bg-cyan-100 px-2 py-0.5 rounded">
+                Experimento 2 (Direita)
+              </span>
+              <span class="text-[11px] font-semibold text-stone-500">Plástico Convencional</span>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Material do Pente</label>
+              <div class="grid grid-cols-2 gap-2">
+                <button type="button" onclick="setParamExp(2, 'material', 'madeira')" id="btn-exp2-mat-mad" class="p-2 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold transition-all">
+                  🪵 Madeira
+                </button>
+                <button type="button" onclick="setParamExp(2, 'material', 'pvc')" id="btn-exp2-mat-pvc" class="p-2 rounded-xl border-2 text-xs font-bold transition-all border-cyan-700 bg-cyan-50 text-cyan-950">
+                  🧪 Plástico PVC
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Humidade Relativa</label>
+              <div class="grid grid-cols-2 gap-2">
+                <button type="button" onclick="setParamExp(2, 'umidade', 'alta')" id="btn-exp2-umid-alta" class="p-1.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold transition-all">
+                  🌧️ Alta (~80% PA)
+                </button>
+                <button type="button" onclick="setParamExp(2, 'umidade', 'baixa')" id="btn-exp2-umid-baixa" class="p-1.5 rounded-xl border-2 text-xs font-bold transition-all border-amber-700 bg-amber-50 text-amber-950">
+                  ☀️ Baixa (~30%)
+                </button>
+              </div>
+            </div>
+
+            <div id="container-exp2-acab" style="opacity: 0.4; pointer-events: none;">
+              <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Acabamento</label>
+              <div class="grid grid-cols-2 gap-2">
+                <button type="button" onclick="setParamExp(2, 'acabamento', 'natural')" id="btn-exp2-acab-nat" class="p-1.5 rounded-xl border-2 text-xs font-bold transition-all border-emerald-700 bg-emerald-50 text-emerald-950">
+                  Óleo Natural
+                </button>
+                <button type="button" onclick="setParamExp(2, 'acabamento', 'verniz')" id="btn-exp2-acab-vern" class="p-1.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold transition-all">
+                  Verniz Sintético
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Canvas -->
+        <div class="mt-4">
+          <div class="relative w-full h-80 sm:h-96 rounded-2xl bg-gradient-to-b from-[#1a1d20] to-[#0e1012] overflow-hidden border border-stone-800 shadow-inner">
+            <canvas id="simCanvasDuplo" class="w-full h-full block"></canvas>
+            
+            <div class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur px-2.5 py-1 rounded-lg border border-white/10 text-white text-[10px] flex items-center gap-2">
+              <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-red-500 inline-block"></span> Carga (+) Fios</span>
+              <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-cyan-400 inline-block"></span> Carga (-) Pente</span>
+              <span class="text-amber-300 font-bold">⚡ Cargas concentradas nas pontas</span>
+            </div>
+
+            <div class="absolute top-0 bottom-8 left-1/2 w-0 border-r border-dashed border-white/20 pointer-events-none"></div>
+
+            <div class="absolute bottom-2 left-2.5 right-2.5 bg-stone-900/90 backdrop-blur border border-white/10 text-stone-100 p-2 rounded-lg text-[11px] flex items-center justify-between">
+              <span id="duplo-status-esq" class="text-emerald-300 font-medium">Exp 1: Pronto</span>
+              <span class="text-stone-400 font-bold uppercase text-[9px] hidden sm:inline">Comparação Lado a Lado</span>
+              <span id="duplo-status-dir" class="text-rose-300 font-medium">Exp 2: Pronto</span>
+            </div>
+          </div>
+
+          <!-- Botões de Ação Abaixo da Simulação -->
+          <div class="flex items-center justify-center gap-3 mt-3">
+            <button id="btn-penteia-duplo" onclick="executarPenteadoDuplo()" class="px-4 py-2 rounded-xl bg-floresta-700 hover:bg-floresta-800 text-white text-xs font-bold shadow-md transition-all active:scale-95 flex items-center gap-1.5">
+              <span>✨</span> Pentear Ambos
+            </button>
+            <button onclick="resetSimuladorDuplo()" class="px-3 py-2 rounded-xl bg-stone-200 hover:bg-stone-300 text-stone-700 text-xs font-semibold transition-all">
+              Repor
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ABA 3: OS 4 CARTÕES DE RECURSOS (A, B, C e D) -->
+    <div id="section-cartoes" class="tab-content hidden space-y-8">
+      
+      <!-- CARTÃO A: SÉRIE TRIBOELÉTRICA -->
+      <section class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200 space-y-4">
+        <div class="flex items-center justify-between border-b border-stone-200 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-blue-100 text-blue-900">CARTÃO A</span>
+            <h3 class="text-lg font-bold text-stone-900">Série Triboelétrica Interativa</h3>
+          </div>
+          <span class="text-xs text-stone-500 font-medium">Afinidade Eletrónica</span>
+        </div>
+
+        <div class="bg-amber-50/70 border-l-4 border-amber-500 p-3.5 rounded-r-xl text-xs text-amber-950">
+          <strong>Síntese do Cartão A:</strong> A madeira e o cabelo encontram-se mais próximos na série triboelétrica. Isso significa que, quando friccionados, trocam menos cargas elétricas do que o cabelo com materiais como o PVC ou o Teflon. Quanto mais afastados dois materiais estão na série, maior a facilidade com que adquirem cargas elétricas por atrito. Por conseguinte, o pente de plástico costuma gerar substancialmente mais eletricidade estática do que o pente de madeira.
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 bg-stone-50 p-4 rounded-2xl border border-stone-200">
+          <div class="lg:col-span-5 space-y-2">
+            <label class="block text-[11px] font-bold text-stone-700 uppercase">Selecione o Par de Atrito:</label>
+            <div class="space-y-1.5">
+              <button onclick="selecionarParTribo('cabelo-madeira')" id="btn-tribo-mad" class="w-full text-left p-2.5 rounded-xl border-2 text-xs font-bold transition-all border-emerald-700 bg-emerald-50 text-emerald-950 flex justify-between items-center">
+                <span>Cabelo × Madeira Seca</span>
+                <span class="text-[10px] bg-emerald-200 text-emerald-900 px-1.5 py-0.5 rounded">Próximos</span>
+              </button>
+              <button onclick="selecionarParTribo('cabelo-pvc')" id="btn-tribo-pvc" class="w-full text-left p-2.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 hover:bg-stone-100 text-xs font-bold transition-all flex justify-between items-center">
+                <span>Cabelo × PVC</span>
+                <span class="text-[10px] bg-indigo-100 text-indigo-900 px-1.5 py-0.5 rounded">Distantes</span>
+              </button>
+              <button onclick="selecionarParTribo('cabelo-teflon')" id="btn-tribo-tef" class="w-full text-left p-2.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 hover:bg-stone-100 text-xs font-bold transition-all flex justify-between items-center">
+                <span>Cabelo × Teflon</span>
+                <span class="text-[10px] bg-rose-200 text-rose-900 px-1.5 py-0.5 rounded">Muito Distantes</span>
+              </button>
+            </div>
+
+            <button onclick="iniciarAtritoTribo()" class="w-full py-2.5 rounded-xl bg-floresta-700 hover:bg-floresta-800 text-white font-bold text-xs shadow-sm transition-all mt-2">
+              ⚡ Friccionar e Analisar Transferência
+            </button>
+
+            <p id="tribo-explicacao-dinamica" class="text-[11px] text-stone-600 bg-white p-2.5 rounded-lg border border-stone-200">
+              O cabelo humano cede eletrões (+); a madeira recebe uma quantidade reduzida de eletrões (-), mantendo baixa a densidade superficial de carga estática.
             </p>
           </div>
 
-          <div class="flex items-center gap-2">
-            <button id="btn-penteia" onclick="executarPenteado()" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-floresta-700 to-madeira-700 hover:from-floresta-800 hover:to-madeira-800 text-white text-sm font-bold shadow-lg transition-all transform active:scale-95 flex items-center gap-2">
-              <span id="comb-icon">✨</span> Passar o Pente no Cabelo
-            </button>
-            <button onclick="resetSimulador()" class="px-4 py-3 rounded-2xl bg-stone-100 hover:bg-stone-200 text-stone-700 text-sm font-semibold transition-all">
-              Resetar
-            </button>
+          <div class="lg:col-span-7">
+            <div class="relative w-full h-64 bg-stone-900 rounded-2xl overflow-hidden border border-stone-700">
+              <canvas id="canvasTribo" class="w-full h-full block"></canvas>
+              <div class="absolute bottom-2 left-2 right-2 bg-black/70 text-stone-200 text-[10px] px-2.5 py-1 rounded flex justify-between">
+                <span id="tribo-canvas-status">Estado Neutro. Clique em "Friccionar".</span>
+                <span id="tribo-cargas-count" class="text-amber-300 font-mono">Cargas: 0</span>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
 
-        <!-- Grid de Controles + Canvas -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-6">
-          
-          <!-- Controles Interativos -->
-          <div class="lg:col-span-4 space-y-5 bg-stone-50 p-5 rounded-2xl border border-stone-200">
-            <h4 class="font-bold text-sm text-stone-800 flex items-center gap-2">
-              <span>⚙️</span> Configurações do Experimento
-            </h4>
+      <!-- CARTÃO B: O QUE OS TESTES MOSTRAM -->
+      <section class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200 space-y-4">
+        <div class="flex items-center justify-between border-b border-stone-200 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-amber-100 text-amber-900">CARTÃO B</span>
+            <h3 class="text-lg font-bold text-stone-900">Resultados dos Testes Experimentais</h3>
+          </div>
+          <span class="text-xs text-stone-500 font-medium">Bancada Didática</span>
+        </div>
 
-            <!-- Material do Pente -->
-            <div>
-              <label class="block text-xs font-bold text-stone-700 uppercase tracking-wide mb-2">
-                1. Material do Pente
-              </label>
-              <div class="grid grid-cols-2 gap-2">
-                <button type="button" onclick="setParam('material', 'madeira')" id="btn-mat-madeira" class="p-3 rounded-xl border-2 text-xs font-bold flex flex-col items-center gap-1.5 transition-all border-emerald-700 bg-emerald-50 text-emerald-950">
-                  <span class="text-lg">🪵</span>
-                  <span>Madeira Natural</span>
-                </button>
-                <button type="button" onclick="setParam('material', 'pvc')" id="btn-mat-pvc" class="p-3 rounded-xl border-2 border-stone-200 bg-white text-stone-700 hover:bg-stone-100 text-xs font-bold flex flex-col items-center gap-1.5 transition-all">
-                  <span class="text-lg">🧪</span>
-                  <span>Plástico PVC / Teflon</span>
-                </button>
-              </div>
-            </div>
+        <div class="bg-amber-50/70 border-l-4 border-amber-500 p-3.5 rounded-r-xl text-xs text-amber-950">
+          <strong>Síntese do Cartão B:</strong> Os testes comprovam que, ao friccionar o cabelo com madeira, a carga elétrica formada é mais fraca e desaparece mais rapidamente. Com o PVC, a eletrização é intensa e perdura por muito tempo. Conclui-se que a madeira acumula menos carga líquida e permite que ela se dissipe com maior celeridade do que polímeros vulgares.
+        </div>
 
-            <!-- Umidade do Ambiente -->
-            <div>
-              <label class="block text-xs font-bold text-stone-700 uppercase tracking-wide mb-2">
-                2. Umidade Relativa do Ar
-              </label>
-              <div class="grid grid-cols-2 gap-2">
-                <button type="button" onclick="setParam('umidade', 'alta')" id="btn-umid-alta" class="p-3 rounded-xl border-2 text-xs font-bold flex flex-col items-center gap-1.5 transition-all border-emerald-700 bg-emerald-50 text-emerald-950">
-                  <span class="text-lg">🌧️</span>
-                  <span>Alta (Pará ~80%)</span>
-                </button>
-                <button type="button" onclick="setParam('umidade', 'baixa')" id="btn-umid-baixa" class="p-3 rounded-xl border-2 border-stone-200 bg-white text-stone-700 hover:bg-stone-100 text-xs font-bold flex flex-col items-center gap-1.5 transition-all">
-                  <span class="text-lg">☀️</span>
-                  <span>Baixa / Ar Seco (30%)</span>
-                </button>
-              </div>
-            </div>
+        <!-- Seletor dos 5 Casos -->
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-1.5">
+          <button onclick="selecionarCasoLab(1)" id="tab-caso-1" class="caso-btn p-2 rounded-xl border-2 text-xs font-bold text-center border-amber-600 bg-amber-50 text-amber-900">
+            Caso 1<br><span class="font-normal text-[10px]">Cabelo x Madeira</span>
+          </button>
+          <button onclick="selecionarCasoLab(2)" id="tab-caso-2" class="caso-btn p-2 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold text-center">
+            Caso 2<br><span class="font-normal text-[10px]">Cabelo x PVC</span>
+          </button>
+          <button onclick="selecionarCasoLab(3)" id="tab-caso-3" class="caso-btn p-2 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold text-center">
+            Caso 3<br><span class="font-normal text-[10px]">Cabelo x Teflon</span>
+          </button>
+          <button onclick="selecionarCasoLab(4)" id="tab-caso-4" class="caso-btn p-2 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold text-center">
+            Caso 4<br><span class="font-normal text-[10px]">Madeira x PVC</span>
+          </button>
+          <button onclick="selecionarCasoLab(5)" id="tab-caso-5" class="caso-btn p-2 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold text-center">
+            Caso 5<br><span class="font-normal text-[10px]">Vidro x Seda</span>
+          </button>
+        </div>
 
-            <!-- Acabamento Superficial -->
-            <div id="container-acabamento">
-              <label class="block text-xs font-bold text-stone-700 uppercase tracking-wide mb-2">
-                3. Acabamento da Madeira
-              </label>
-              <div class="grid grid-cols-2 gap-2">
-                <button type="button" onclick="setParam('acabamento', 'natural')" id="btn-acab-natural" class="p-2.5 rounded-xl border-2 text-xs font-bold flex flex-col items-center gap-1 transition-all border-emerald-700 bg-emerald-50 text-emerald-950">
-                  <span>Crua / Óleo Natural</span>
-                </button>
-                <button type="button" onclick="setParam('acabamento', 'verniz')" id="btn-acab-verniz" class="p-2.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 hover:bg-stone-100 text-xs font-bold flex flex-col items-center gap-1 transition-all">
-                  <span>Verniz Sintético (Polímero)</span>
-                </button>
-              </div>
-              <p id="acabamento-nota" class="text-[11px] text-stone-500 mt-1.5 italic">
-                *O verniz cria uma película impermeável que atua eletricamente como plástico!
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 bg-stone-50 p-4 rounded-2xl border border-stone-200">
+          <div class="lg:col-span-5 space-y-2">
+            <div class="bg-white p-3 rounded-xl border border-stone-200">
+              <span id="caso-tag-natureza" class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800 uppercase">
+                Cabelo (+) / Madeira (-)
+              </span>
+              <h4 id="caso-titulo" class="text-sm font-extrabold text-stone-900 mt-1">
+                Ensaio 1: Cabelo × Madeira Seca
+              </h4>
+              <p id="caso-observacao" class="text-[11px] text-stone-600 mt-1">
+                Atração visível de fragmentos de papel neutros; o efeito decai gradualmente e dissipa-se num curto intervalo de tempo.
               </p>
             </div>
 
-            <!-- Dados Instantâneos -->
-            <div class="border-t border-stone-200 pt-3 space-y-2 text-xs">
-              <div class="flex justify-between items-center text-stone-600">
-                <span>Distância na Série:</span>
-                <span id="stat-distancia" class="font-bold text-stone-900">Curta (Pouca carga)</span>
-              </div>
-              <div class="flex justify-between items-center text-stone-600">
-                <span>Condutividade Superficial:</span>
-                <span id="stat-condutividade" class="font-bold text-emerald-700">Alta (Dissipa rápido)</span>
-              </div>
-              <div class="flex justify-between items-center text-stone-600">
-                <span>Potencial de Frizz Estático:</span>
-                <span id="stat-frizz" class="font-bold text-emerald-700">Muito Baixo</span>
-              </div>
-            </div>
+            <button onclick="dispararTesteLab()" class="w-full py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs shadow-sm transition-all">
+              🔬 Testar Atração de Papéis & Dissipação
+            </button>
           </div>
 
-          <!-- Área Visual do Canvas / Simulação -->
-          <div class="lg:col-span-8 flex flex-col">
-            <div class="relative w-full h-80 sm:h-96 rounded-2xl bg-gradient-to-b from-[#212529] to-[#121416] overflow-hidden border border-stone-800 shadow-inner">
-              
-              <!-- Canvas para desenhar fios de cabelo, pentes, partículas de carga e arcos elétricos -->
-              <canvas id="simCanvas" class="w-full h-full block"></canvas>
-
-              <!-- Legenda Sobreposta no Canvas -->
-              <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10 text-white text-[11px] flex items-center gap-3">
-                <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span> Carga (+) Fios</span>
-                <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-cyan-400 inline-block"></span> Carga (-) Pente</span>
-                <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-stone-400 inline-block"></span> Neutro</span>
+          <div class="lg:col-span-7">
+            <div class="relative w-full h-64 bg-stone-900 rounded-2xl overflow-hidden border border-stone-700">
+              <canvas id="canvasLab" class="w-full h-full block"></canvas>
+              <div class="absolute bottom-2 left-2 right-2 bg-black/70 text-stone-200 text-[10px] px-2.5 py-1 rounded flex justify-between">
+                <span id="lab-timer-text">Cronómetro: Em espera</span>
+                <span id="lab-status-text" class="text-amber-300 font-bold">Neutro</span>
               </div>
-
-              <!-- Indicador de Status Dinâmico -->
-              <div id="sim-banner" class="absolute bottom-3 left-3 right-3 bg-stone-900/90 backdrop-blur border border-white/10 text-stone-100 p-2.5 rounded-xl text-xs flex items-center justify-between">
-                <span id="sim-status-text">Selecione os parâmetros e clique em "Passar o Pente no Cabelo".</span>
-                <span id="sim-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-stone-700 text-stone-200">Em repouso</span>
-              </div>
-            </div>
-
-            <!-- Caixa Explicativa da Análise Física do Estado -->
-            <div id="sim-diagnostico" class="mt-4 p-4 rounded-2xl bg-floresta-50 border border-floresta-200 text-floresta-950 text-xs sm:text-sm leading-relaxed">
-              <strong>🔬 Análise do Fenômeno:</strong> Com o pente de <em>Madeira Natural</em> e alta umidade amazônica, o número de elétrons transferidos é baixo. A umidade absorvida pela fibra vegetal da madeira cria caminhos condutivos que escoam as cargas antes que ocorra repulsão mútua dos fios. Resultado: alinhamento limpo.
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <!-- CARTÃO C: COMO SURGE O FRIZZ -->
+      <section class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200 space-y-4">
+        <div class="flex items-center justify-between border-b border-stone-200 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-purple-100 text-purple-900">CARTÃO C</span>
+            <h3 class="text-lg font-bold text-stone-900">Como Surge o Frizz</h3>
+          </div>
+          <span class="text-xs text-stone-500 font-medium">Biofísica Capilar</span>
+        </div>
+
+        <div class="bg-purple-50/70 border-l-4 border-purple-500 p-3.5 rounded-r-xl text-xs text-purple-950">
+          <strong>Síntese do Cartão C:</strong> Quando os fios de cabelo adquirem cargas elétricas do mesmo sinal, repelem-se mutuamente e afastam-se. É deste modo que o frizz eletrostático se manifesta. Como a madeira acumula pouca carga e facilita o escoamento elétrico, essa força de repulsão é menor e possui menor duração, auxiliando a manter os fios alinhados. Contudo, a eletricidade estática é apenas um dos fatores determinantes: humidade, danos na fibra e estrutura do fio também afetam diretamente o resultado.
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-stone-600">
+          <div class="p-3 bg-stone-50 rounded-xl border border-stone-200">
+            <strong class="text-stone-900 block mb-1">1. Antes de Pentear</strong>
+            Fios neutros, agrupados e com alinhamento paralelo inicial em equilíbrio mecânico.
+          </div>
+          <div class="p-3 bg-stone-50 rounded-xl border border-stone-200">
+            <strong class="text-stone-900 block mb-1">2. Durante o Contacto</strong>
+            O atrito mecânico constante entre o pente e os fios produz separação e fluxo superficial de eletrões.
+          </div>
+          <div class="p-3 bg-stone-50 rounded-xl border border-rose-200 bg-rose-50/60 text-rose-950">
+            <strong class="block mb-1">3. Após a Eletrização</strong>
+            Fios eletrizados com carga positiva mútua (+) repelem-se fortemente, abrindo em leque espalhado (frizz)!
+          </div>
+        </div>
+      </section>
+
+      <!-- CARTÃO D: MADEIRA, HUMIDADE E ACABAMENTO -->
+      <section class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200 space-y-4">
+        <div class="flex items-center justify-between border-b border-stone-200 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-100 text-emerald-900">CARTÃO D</span>
+            <h3 class="text-lg font-bold text-stone-900">Madeira, Humidade e Acabamento</h3>
+          </div>
+          <span class="text-xs text-stone-500 font-medium">Higroscopia dos Materiais</span>
+        </div>
+
+        <div class="bg-emerald-50/70 border-l-4 border-emerald-500 p-3.5 rounded-r-xl text-xs text-emerald-950">
+          <strong>Síntese do Cartão D:</strong> A madeira é um material higroscópico, trocando humidade permanentemente com o ambiente. Quanto mais húmida estiver, menor se torna a sua resistividade elétrica, permitindo a dissipação célere de cargas estáticas. Em contrapartida, em ambientes muito secos, a madeira atua mais como isolante e a sua capacidade de escoamento diminui. Por fim, se o pente for revestido com vernizes sintéticos, é essa camada polimérica impermeável que entrará em contacto com o cabelo, alterando totalmente o comportamento elétrico do produto.
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-stone-600">
+          <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200 text-emerald-950">
+            <h4 class="font-bold mb-1 flex items-center gap-1.5">
+              <span>🌧️</span> A Vantagem de Inhangapi / Pará
+            </h4>
+            <p class="leading-relaxed">
+              O ambiente equatorial amazónico apresenta humidade relativa média do ar elevada (&gt;75%). As microfibras de celulose da madeira absorvem vapor de água, reduzindo exponencialmente a sua resistividade e drenando cargas superficiais antes da dispersão rebelde dos fios.
+            </p>
+          </div>
+          <div class="p-4 bg-rose-50 rounded-xl border border-rose-200 text-rose-950">
+            <h4 class="font-bold mb-1 flex items-center gap-1.5">
+              <span>⚠️</span> O Risco do Verniz Polimérico
+            </h4>
+            <p class="leading-relaxed">
+              Cobrir o pente com verniz ou resina sintética impermeabilizante cria uma película polimérica oclusiva. O cabelo entra em atrito com uma superfície plástica e não com a madeira pura, acumulando eletricidade estática e invalidando o propósito técnico original.
+            </p>
+          </div>
+        </div>
+      </section>
+
     </div>
 
-    <div id="section-evidencias" class="tab-content hidden space-y-8">
-      
-      <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200">
-        <div class="border-b border-stone-200 pb-4 mb-6">
-          <span class="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-3 py-1 rounded-md">
-            Fundamentação Teórica Rigorosa
-          </span>
-          <h3 class="text-2xl font-extrabold text-stone-900 mt-1">
-            Os 4 Cartões de Recursos Analisados
-          </h3>
-          <p class="text-stone-600 text-xs sm:text-sm">
-            Cruzamento dialético dos dados das folhas da atividade para responder às perguntas científicas da consultoria.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
-          <!-- Card A: Série Triboelétrica -->
-          <div class="bg-gradient-to-br from-stone-50 to-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:border-emerald-500/60 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-blue-100 text-blue-900">
-                  CARTÃO DE RECURSOS A
-                </span>
-                <span class="text-xs text-stone-400">Afinidade Eletrônica</span>
-              </div>
-              <h4 class="text-lg font-bold text-stone-900">A Série Triboelétrica</h4>
-              
-              <!-- Diagrama Mini Triboelétrico -->
-              <div class="p-3 bg-stone-100 rounded-xl space-y-1.5 text-xs">
-                <div class="flex justify-between items-center text-red-700 font-bold border-b border-stone-200 pb-1">
-                  <span>(+) Doa Elétrons Facilmente</span>
-                  <span>Cabelo Humano</span>
-                </div>
-                <div class="text-stone-600 text-[11px] py-1 text-center">
-                  ↓ Distância Curta (Madeira) vs Distância Longa (PVC / Teflon) ↓
-                </div>
-                <div class="flex justify-between items-center text-emerald-800 font-semibold bg-emerald-100/60 p-1 rounded">
-                  <span>Posição Central:</span>
-                  <span>Madeira Natural</span>
-                </div>
-                <div class="flex justify-between items-center text-cyan-700 font-bold border-t border-stone-200 pt-1">
-                  <span>(-) Ganha Elétrons Facilmente</span>
-                  <span>PVC / Teflon</span>
-                </div>
-              </div>
-
-              <div class="text-xs text-stone-600 space-y-2 leading-relaxed">
-                <p><strong>Princípio:</strong> Quanto maior o distanciamento relativo entre dois materiais na escala, maior a diferença de afinidade eletrônica e mais intensa a transferência líquida de elétrons por atrito mecânico.</p>
-                <p><strong>Conclusão sobre o Cabelo:</strong> O par <em>Cabelo-PVC</em> ou <em>Cabelo-Teflon</em> está nos extremos opostos. O par <em>Cabelo-Madeira</em> possui menor gap triboelétrico, resultando em menor densidade de carga superficial.</p>
-              </div>
-            </div>
-            
-            <div class="mt-4 pt-3 border-t border-stone-200 text-[11px] text-stone-500 italic">
-              *Resposta à discussão: A posição na série, isoladamente, NÃO é suficiente porque não mede a velocidade de dissipação nem a textura superficial.
-            </div>
-          </div>
-
-          <!-- Card B: Testes de Eletrização -->
-          <div class="bg-gradient-to-br from-stone-50 to-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:border-emerald-500/60 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-amber-100 text-amber-900">
-                  CARTÃO DE RECURSOS B
-                </span>
-                <span class="text-xs text-stone-400">Ensaios de Bancada</span>
-              </div>
-              <h4 class="text-lg font-bold text-stone-900">O que os Testes Mostram?</h4>
-
-              <div class="overflow-x-auto">
-                <table class="w-full text-left text-xs border border-stone-200 rounded-lg">
-                  <thead class="bg-stone-100 text-stone-700 font-bold">
-                    <tr>
-                      <th class="p-2">Par</th>
-                      <th class="p-2">Atração de Papel</th>
-                      <th class="p-2">Duração</th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-stone-200 text-stone-600">
-                    <tr>
-                      <td class="p-2 font-medium">Cabelo x Madeira</td>
-                      <td class="p-2">Visível inicial</td>
-                      <td class="p-2 text-emerald-700 font-semibold">Diminui rápido</td>
-                    </tr>
-                    <tr>
-                      <td class="p-2 font-medium">Cabelo x PVC</td>
-                      <td class="p-2">Muito nítida</td>
-                      <td class="p-2 text-rose-700 font-semibold">Persiste muito</td>
-                    </tr>
-                    <tr>
-                      <td class="p-2 font-medium">Cabelo x Teflon</td>
-                      <td class="p-2">Intensa separação</td>
-                      <td class="p-2 text-rose-700 font-semibold">Muito persistente</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div class="text-xs text-stone-600 space-y-2 leading-relaxed">
-                <p><strong>Por que isolante se eletriza?</strong> Ser isolante térmico ou elétrico significa apenas baixa mobilidade de elétrons livres internos, mas <em>não impede</em> que os elétrons da última camada fiquem retidos na superfície após o atrito.</p>
-                <p><strong>Diferencial Chave:</strong> A madeira eletriza-se, mas seu efeito "diminui após algum tempo" (dissipação), enquanto no polímero termoplástico a carga permanece retida.</p>
-              </div>
-            </div>
-
-            <div class="mt-4 pt-3 border-t border-stone-200 text-[11px] text-stone-500 italic">
-              *Resposta à discussão: Falta relacionar a repulsão mútua dos fios individuais no couro cabeludo após o afastamento do pente.
-            </div>
-          </div>
-
-          <!-- Card C: Da Eletrização ao Frizz -->
-          <div class="bg-gradient-to-br from-stone-50 to-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:border-emerald-500/60 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-purple-100 text-purple-900">
-                  CARTÃO DE RECURSOS C
-                </span>
-                <span class="text-xs text-stone-400">Biofísica Capilar</span>
-              </div>
-              <h4 class="text-lg font-bold text-stone-900">Da Eletrização ao Frizz</h4>
-
-              <!-- Visual dos 3 Estados -->
-              <div class="grid grid-cols-3 gap-2 text-center text-[11px] p-2 bg-stone-100 rounded-xl">
-                <div class="bg-white p-2 rounded-lg border border-stone-200">
-                  <div class="font-bold text-stone-800">1. Antes</div>
-                  <div class="text-stone-500 mt-1">Fios neutros, agrupados</div>
-                </div>
-                <div class="bg-white p-2 rounded-lg border border-stone-200">
-                  <div class="font-bold text-stone-800">2. Contato</div>
-                  <div class="text-stone-500 mt-1">Separação de cargas</div>
-                </div>
-                <div class="bg-white p-2 rounded-lg border border-red-200 text-red-700">
-                  <div class="font-bold">3. Repulsão</div>
-                  <div class="text-[10px] mt-1">(+) repele (+) → Fios armam</div>
-                </div>
-              </div>
-
-              <div class="text-xs text-stone-600 space-y-2 leading-relaxed">
-                <p><strong>Lei de Du Fay / Coulomb:</strong> Cargas de mesmo sinal se repelem. Quando o pente arranca elétrons dos fios de queratina, todos os fios adquirem carga positiva líquida (+). Essa repulsão mútua expulsa os fios do alinhamento geométrico paralelo.</p>
-                <p><strong>A Advertência Multifatorial:</strong> O frizz NÃO se resume à eletrostática. Quebras cuticulares, variações de umidade na córtex e curvaturas naturais (crespos e cacheados) também causam desalinhamento sem nenhuma carga elétrica envolvida.</p>
-              </div>
-            </div>
-
-            <div class="mt-4 pt-3 border-t border-stone-200 text-[11px] text-stone-500 italic">
-              *Resposta: "Combater o frizz" da campanha é vago porque o pente só alivia a componente de repulsão de cargas, não restaurando cutículas danificadas.
-            </div>
-          </div>
-
-          <!-- Card D: Madeira, Umidade e Acabamento -->
-          <div class="bg-gradient-to-br from-stone-50 to-white rounded-2xl p-6 border border-stone-200 shadow-sm hover:border-emerald-500/60 transition-all flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-100 text-emerald-900">
-                  CARTÃO DE RECURSOS D
-                </span>
-                <span class="text-xs text-stone-400">Ciência dos Materiais</span>
-              </div>
-              <h4 class="text-lg font-bold text-stone-900">Higroscopia e Acabamento</h4>
-
-              <div class="p-3 bg-emerald-50/70 border border-emerald-200 rounded-xl text-xs space-y-1.5 text-emerald-950">
-                <div class="font-bold">A Conexão com o Município de Inhangapi:</div>
-                <p class="leading-relaxed">
-                  Por estar localizada na Amazônia paraense, Inhangapi apresenta umidade relativa média do ar elevada (&gt;75%). A madeira é <strong>higroscópica</strong>: suas microfibrilas de celulose adsorvem moléculas de água ambiental.
-                </p>
-              </div>
-
-              <div class="text-xs text-stone-600 space-y-2 leading-relaxed">
-                <p><strong>Queda de Resistividade:</strong> A presença de umidade na madeira reduz sua resistividade elétrica exponencialmente. Cargas criadas pelo atrito escoam rapidamente pelo corpo do pente e pela mão de quem penteia.</p>
-                <p><strong>O Risco do Verniz:</strong> Se a oficina aplicar verniz poliuretano sintético brilhante para proteger a peça, o cabelo nunca entrará em contato com a madeira, mas sim com uma camada de plástico! O efeito antiestático será anulado.</p>
-              </div>
-            </div>
-
-            <div class="mt-4 pt-3 border-t border-stone-200 text-[11px] text-stone-500 italic">
-              *Diretriz essencial: O tipo de acabamento define se o produto entrega a física prometida ou vira um plástico disfarçado de madeira.
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div id="section-parecer" class="tab-content hidden space-y-8">
-      
-      <!-- Dicas Práticas de Fabricação & Marketing -->
-      <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200 space-y-6">
-        <div class="border-b border-stone-200 pb-4">
-          <span class="text-xs font-bold uppercase tracking-wider text-madeira-800 bg-madeira-100 px-3 py-1 rounded-md">
+    <!-- ABA 4: RECOMENDAÇÕES & QUIZ -->
+    <div id="section-parecer" class="tab-content hidden space-y-6">
+      <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200 space-y-4">
+        <div class="border-b border-stone-200 pb-3">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-madeira-800 bg-madeira-100 px-2 py-0.5 rounded">
             Guia Operacional para a Cooperativa
           </span>
-          <h3 class="text-2xl font-extrabold text-stone-900 mt-1">
-            Recomendações Técnicas para a Oficina de Inhangapi
+          <h3 class="text-xl font-extrabold text-stone-900 mt-1">
+            Recomendações Práticas de Fabrico (Oficina de Inhangapi)
           </h3>
-          <p class="text-stone-600 text-xs sm:text-sm">
-            Como garantir que o produto entregue rigorosamente o valor que a publicidade ética defende.
-          </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="p-5 rounded-2xl bg-amber-50/60 border border-amber-200 space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-amber-700 text-white flex items-center justify-center font-bold text-lg">
-              🪵
-            </div>
-            <h4 class="font-bold text-amber-950 text-base">Acabamento com Bio-Óleos</h4>
-            <p class="text-xs text-stone-700 leading-relaxed">
-              <strong>Evitar:</strong> Vernizes poliuretanos, resinas epóxi ou seladores sintéticos que criam blindagem plástica.<br><br>
-              <strong>Adotar:</strong> Lixamento fino e selagem com óleos amazônicos locais (óleo de andiroba ou castanha-do-pará) e cera de abelha tiúba. Isso preserva a higroscopia natural da madeira sem fechar os microporos condutores.
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-200 space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-amber-700 text-white flex items-center justify-center font-bold">🪵</div>
+            <h4 class="font-bold text-amber-950 text-sm">Bio-Óleos Regionais</h4>
+            <p class="text-stone-700 leading-relaxed">
+              Evite vernizes sintéticos como poliuretano ou epóxi. Adote a selagem natural com óleo de andiroba ou de castanha-do-pará associada a ceras de abelha, preservando a higroscopia da madeira e a sua respiração natural.
             </p>
           </div>
 
-          <div class="p-5 rounded-2xl bg-emerald-50/60 border border-emerald-200 space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-emerald-700 text-white flex items-center justify-center font-bold text-lg">
-              🍃
-            </div>
-            <h4 class="font-bold text-emerald-950 text-base">Design dos Dentes e Polimento</h4>
-            <p class="text-xs text-stone-700 leading-relaxed">
-              O frizz mecânico ocorre quando rebarbas ou arestas afiadas arranham a cutícula dos fios. Dentes com pontas arredondadas e polimento impecável reduzem o coeficiente de atrito mecânico, diminuindo a força de cisalhamento sobre as fibras capilares.
+          <div class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-200 space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-emerald-700 text-white flex items-center justify-center font-bold">🍃</div>
+            <h4 class="font-bold text-emerald-950 text-sm">Polimento dos Dentes</h4>
+            <p class="text-stone-700 leading-relaxed">
+              O frizz de origem mecânica surge quando rebarbas causam microfissuras na cutícula dos fios. Dentes com acabamento curvo suave e polimento meticuloso reduzem a força de cisalhamento.
             </p>
           </div>
 
-          <div class="p-5 rounded-2xl bg-stone-50 border border-stone-200 space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-stone-800 text-white flex items-center justify-center font-bold text-lg">
-              📢
-            </div>
-            <h4 class="font-bold text-stone-900 text-base">Comunicação Transparente</h4>
-            <p class="text-xs text-stone-700 leading-relaxed">
-              Informar no encarte: <em>"A madeira natural auxilia na neutralização das cargas estáticas, minimizando o afastamento elétrico dos fios. Para nutrição profunda e fios extremamente ressecados, associe o uso a óleos finalizadores."</em>
+          <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200 space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-stone-800 text-white flex items-center justify-center font-bold">📢</div>
+            <h4 class="font-bold text-stone-900 text-sm">Publicidade Transparente</h4>
+            <p class="text-stone-700 leading-relaxed">
+              Comunique com clareza que o produto reduz a carga estática e alinha os fios, orientando o consumidor de que danos cuticulares severos ou fios ressecados também demandam óleos finalizadores.
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Quiz Interativo: Mito ou Verdade -->
-      <div class="bg-gradient-to-br from-floresta-900 to-madeira-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+      <!-- Quiz Interativo -->
+      <div class="bg-gradient-to-br from-floresta-900 to-madeira-900 text-white rounded-3xl p-6 shadow-xl space-y-4">
+        <div class="flex items-center justify-between border-b border-white/10 pb-3">
           <div>
-            <span class="text-xs font-bold uppercase tracking-widest text-emerald-300 bg-emerald-500/20 px-3 py-1 rounded-full">
-              Fixação de Aprendizagem & Avaliação
+            <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded-full">
+              Fixação dos Conceitos
             </span>
-            <h3 class="text-2xl font-bold font-serif text-white mt-1">
-              Desafio Interativo: Mito ou Verdade da Física?
+            <h3 class="text-lg font-bold font-serif text-white mt-1">
+              Desafio: Mito ou Verdade da Física?
             </h3>
           </div>
-          <div class="text-sm font-semibold text-emerald-200 bg-white/10 px-3 py-1.5 rounded-xl">
-            Pontuação: <span id="quiz-score" class="font-bold text-white text-base">0</span> / 4
+          <div class="text-xs font-semibold text-emerald-200 bg-white/10 px-2.5 py-1 rounded-lg">
+            Pontuação: <span id="quiz-score" class="font-bold text-white text-sm">0</span> / 4
           </div>
         </div>
 
-        <!-- Questões do Quiz -->
-        <div class="space-y-4" id="quiz-container">
-          
-          <!-- Q1 -->
-          <div class="quiz-item p-4 sm:p-5 rounded-2xl bg-white/10 border border-white/15 space-y-3" id="q1">
-            <div class="text-sm font-semibold text-stone-100 flex items-start gap-2">
+        <div class="space-y-3">
+          <div class="p-3.5 rounded-xl bg-white/10 border border-white/15 space-y-2" id="q1">
+            <div class="text-xs font-semibold text-stone-100 flex items-start gap-2">
               <span class="text-emerald-400 font-bold">1.</span>
-              <span>"Pentes de madeira nunca se eletrizam porque a madeira é um material neutro."</span>
+              <span>"Pentes de madeira nunca se eletrizam porque a madeira é um material isolante."</span>
             </div>
             <div class="flex gap-2">
-              <button onclick="responderQuiz(1, false)" class="quiz-btn px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-xs font-bold transition-all">
-                Mito
-              </button>
-              <button onclick="responderQuiz(1, true)" class="quiz-btn px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-xs font-bold transition-all">
-                Verdade
-              </button>
+              <button onclick="responderQuiz(1, false)" class="quiz-btn px-3 py-1 rounded-lg bg-white/15 hover:bg-white/25 text-xs font-bold">Mito</button>
+              <button onclick="responderQuiz(1, true)" class="quiz-btn px-3 py-1 rounded-lg bg-white/15 hover:bg-white/25 text-xs font-bold">Verdade</button>
             </div>
-            <div id="q1-resp" class="text-xs hidden p-3 rounded-xl"></div>
+            <div id="q1-resp" class="text-xs hidden p-2.5 rounded-lg"></div>
           </div>
 
-          <!-- Q2 -->
-          <div class="quiz-item p-4 sm:p-5 rounded-2xl bg-white/10 border border-white/15 space-y-3" id="q2">
-            <div class="text-sm font-semibold text-stone-100 flex items-start gap-2">
+          <div class="p-3.5 rounded-xl bg-white/10 border border-white/15 space-y-2" id="q2">
+            <div class="text-xs font-semibold text-stone-100 flex items-start gap-2">
               <span class="text-emerald-400 font-bold">2.</span>
-              <span>"A repulsão entre fios de cabelo ocorre porque todos adquirem carga de mesmo sinal (+) durante o contato com o pente."</span>
+              <span>"O frizz surge porque fios com cargas de mesmo sinal (+) se repelem mutuamente, concentrando maior repulsão nas pontas finas."</span>
             </div>
             <div class="flex gap-2">
-              <button onclick="responderQuiz(2, false)" class="quiz-btn px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-xs font-bold transition-all">
-                Mito
-              </button>
-              <button onclick="responderQuiz(2, true)" class="quiz-btn px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-xs font-bold transition-all">
-                Verdade
-              </button>
+              <button onclick="responderQuiz(2, false)" class="quiz-btn px-3 py-1 rounded-lg bg-white/15 hover:bg-white/25 text-xs font-bold">Mito</button>
+              <button onclick="responderQuiz(2, true)" class="quiz-btn px-3 py-1 rounded-lg bg-white/15 hover:bg-white/25 text-xs font-bold">Verdade</button>
             </div>
-            <div id="q2-resp" class="text-xs hidden p-3 rounded-xl"></div>
+            <div id="q2-resp" class="text-xs hidden p-2.5 rounded-lg"></div>
           </div>
 
-          <!-- Q3 -->
-          <div class="quiz-item p-4 sm:p-5 rounded-2xl bg-white/10 border border-white/15 space-y-3" id="q3">
-            <div class="text-sm font-semibold text-stone-100 flex items-start gap-2">
+          <div class="p-3.5 rounded-xl bg-white/10 border border-white/15 space-y-2" id="q3">
+            <div class="text-xs font-semibold text-stone-100 flex items-start gap-2">
               <span class="text-emerald-400 font-bold">3.</span>
-              <span>"Aplicar verniz automotivo ou resina sintética brilhante no pente de madeira aumenta sua capacidade de combater a eletricidade estática."</span>
+              <span>"Envernizar a madeira com camadas sintéticas melhora a sua capacidade antiestática no cabelo."</span>
             </div>
             <div class="flex gap-2">
-              <button onclick="responderQuiz(3, false)" class="quiz-btn px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-xs font-bold transition-all">
-                Mito
-              </button>
-              <button onclick="responderQuiz(3, true)" class="quiz-btn px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-xs font-bold transition-all">
-                Verdade
-              </button>
+              <button onclick="responderQuiz(3, false)" class="quiz-btn px-3 py-1 rounded-lg bg-white/15 hover:bg-white/25 text-xs font-bold">Mito</button>
+              <button onclick="responderQuiz(3, true)" class="quiz-btn px-3 py-1 rounded-lg bg-white/15 hover:bg-white/25 text-xs font-bold">Verdade</button>
             </div>
-            <div id="q3-resp" class="text-xs hidden p-3 rounded-xl"></div>
+            <div id="q3-resp" class="text-xs hidden p-2.5 rounded-lg"></div>
           </div>
 
-          <!-- Q4 -->
-          <div class="quiz-item p-4 sm:p-5 rounded-2xl bg-white/10 border border-white/15 space-y-3" id="q4">
-            <div class="text-sm font-semibold text-stone-100 flex items-start gap-2">
+          <div class="p-3.5 rounded-xl bg-white/10 border border-white/15 space-y-2" id="q4">
+            <div class="text-xs font-semibold text-stone-100 flex items-start gap-2">
               <span class="text-emerald-400 font-bold">4.</span>
-              <span>"O frizz é causado exclusivamente por eletricidade estática, logo o pente cura 100% de qualquer tipo de frizz."</span>
+              <span>"A eletricidade estática é a única causa existente para o surgimento do frizz capilar."</span>
             </div>
             <div class="flex gap-2">
-              <button onclick="responderQuiz(4, false)" class="quiz-btn px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-xs font-bold transition-all">
-                Mito
-              </button>
-              <button onclick="responderQuiz(4, true)" class="quiz-btn px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-xs font-bold transition-all">
-                Verdade
-              </button>
+              <button onclick="responderQuiz(4, false)" class="quiz-btn px-3 py-1 rounded-lg bg-white/15 hover:bg-white/25 text-xs font-bold">Mito</button>
+              <button onclick="responderQuiz(4, true)" class="quiz-btn px-3 py-1 rounded-lg bg-white/15 hover:bg-white/25 text-xs font-bold">Verdade</button>
             </div>
-            <div id="q4-resp" class="text-xs hidden p-3 rounded-xl"></div>
+            <div id="q4-resp" class="text-xs hidden p-2.5 rounded-lg"></div>
           </div>
-
         </div>
       </div>
-
     </div>
 
   </main>
 
-  <footer class="bg-stone-900 text-stone-400 py-10 mt-16 border-t border-stone-800 text-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+  <footer class="bg-stone-900 text-stone-400 py-6 mt-12 border-t border-stone-800 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
       <div>
-        <p class="font-bold text-stone-200 text-sm">Projeto Pedagógico de Física & Consultoria Comunitária</p>
-        <p class="mt-1 text-stone-400">Atividade Eletrização • Análise para a Cooperativa de Reflorestamento de Inhangapi/PA</p>
+        <p class="font-bold text-stone-200">UEPA • Campus XX Castanhal • Turma 2024</p>
+        <p class="text-stone-400 text-[11px]">Introdução à Teoria Eletromagnética • Prof. Dr. Penn Lee Menezes Rodrigues</p>
       </div>
-      <div class="text-stone-400">
-        Desenvolvido com fundamentação em: Triboeletricidade, Forest Products Lab & Física do Eletromagnetismo.
+      <div class="text-stone-400 text-[11px]">
+        Ademir Neto, Izabele Moraes, Kamila Ribeiro e Sandro Alencar
       </div>
     </div>
   </footer>
 
   <script>
-    // State of the simulator
-    const simState = {
-      material: 'madeira',   // 'madeira' | 'pvc'
-      umidade: 'alta',       // 'alta' | 'baixa'
-      acabamento: 'natural', // 'natural' | 'verniz'
-      animando: false,
-      penteX: -100,
-      penteY: 80,
-      progressoPente: 0,
-      cargasFios: 0,         // intensity of positive charges on hair
-      cargasPente: 0,        // intensity of negative charges on comb
-      frizzAngle: 0,         // divergence angle in radians
-    };
-
-    // Tab Navigation
     function switchTab(tabId) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -768,362 +708,726 @@
         btn.classList.remove('text-stone-600');
       }
 
-      // Re-render canvas if entering simulator
       if (tabId === 'simulador') {
-        setTimeout(initCanvas, 50);
+        setTimeout(initCanvasDuplo, 60);
+      } else if (tabId === 'cartoes') {
+        setTimeout(() => {
+          initCanvasTribo();
+          initCanvasLab();
+        }, 60);
       }
     }
 
-    // Set simulator parameters
-    function setParam(tipo, valor) {
-      simState[tipo] = valor;
-      atualizarBotoesUI();
-      atualizarDiagnostico();
-      resetSimulador();
+    /* =========================================================================
+       ESTADOS DO COMPARADOR DUPLO SIMULTÂNEO
+       ========================================================================= */
+    const exp1 = {
+      material: 'madeira',
+      umidade: 'alta',
+      acabamento: 'natural',
+      progresso: 0,
+      cargasFios: 0,
+      cargasPente: 0,
+      frizzAngle: 0
+    };
+
+    const exp2 = {
+      material: 'pvc',
+      umidade: 'baixa',
+      acabamento: 'natural',
+      progresso: 0,
+      cargasFios: 0,
+      cargasPente: 0,
+      frizzAngle: 0
+    };
+
+    let duploAnimando = false;
+    let duploAnimationFrameId = null;
+    let canvasDuplo, ctxDuplo;
+
+    function initCanvasDuplo() {
+      canvasDuplo = document.getElementById('simCanvasDuplo');
+      if (!canvasDuplo) return;
+      ctxDuplo = canvasDuplo.getContext('2d');
+      const rect = canvasDuplo.getBoundingClientRect();
+      canvasDuplo.width = rect.width * window.devicePixelRatio;
+      canvasDuplo.height = rect.height * window.devicePixelRatio;
+      ctxDuplo.scale(window.devicePixelRatio, window.devicePixelRatio);
+      desenharCenaDupla(rect.width, rect.height);
     }
 
-    function atualizarBotoesUI() {
-      // Material buttons
-      const btnMad = document.getElementById('btn-mat-madeira');
-      const btnPvc = document.getElementById('btn-mat-pvc');
-      const containerAcab = document.getElementById('container-acabamento');
+    function setParamExp(num, param, valor) {
+      const target = num === 1 ? exp1 : exp2;
+      target[param] = valor;
+      atualizarBotoesDuploUI(num);
+      resetSimuladorDuplo();
+    }
 
-      if (simState.material === 'madeira') {
-        btnMad.className = "p-3 rounded-xl border-2 text-xs font-bold flex flex-col items-center gap-1.5 transition-all border-emerald-700 bg-emerald-50 text-emerald-950";
-        btnPvc.className = "p-3 rounded-xl border-2 border-stone-200 bg-white text-stone-700 hover:bg-stone-100 text-xs font-bold flex flex-col items-center gap-1.5 transition-all";
-        containerAcab.style.opacity = '1';
-        containerAcab.style.pointerEvents = 'auto';
+    function atualizarBotoesDuploUI(num) {
+      const e = num === 1 ? exp1 : exp2;
+      const prefix = `btn-exp${num}-`;
+
+      const btnMad = document.getElementById(`${prefix}mat-mad`);
+      const btnPvc = document.getElementById(`${prefix}mat-pvc`);
+      const acabBox = document.getElementById(`container-exp${num}-acab`);
+
+      if (e.material === 'madeira') {
+        btnMad.className = "p-2 rounded-xl border-2 text-xs font-bold transition-all border-emerald-700 bg-emerald-50 text-emerald-950";
+        btnPvc.className = "p-2 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold transition-all";
+        acabBox.style.opacity = '1';
+        acabBox.style.pointerEvents = 'auto';
       } else {
-        btnPvc.className = "p-3 rounded-xl border-2 text-xs font-bold flex flex-col items-center gap-1.5 transition-all border-cyan-700 bg-cyan-50 text-cyan-950";
-        btnMad.className = "p-3 rounded-xl border-2 border-stone-200 bg-white text-stone-700 hover:bg-stone-100 text-xs font-bold flex flex-col items-center gap-1.5 transition-all";
-        containerAcab.style.opacity = '0.4';
-        containerAcab.style.pointerEvents = 'none';
+        btnPvc.className = "p-2 rounded-xl border-2 text-xs font-bold transition-all border-cyan-700 bg-cyan-50 text-cyan-950";
+        btnMad.className = "p-2 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold transition-all";
+        acabBox.style.opacity = '0.4';
+        acabBox.style.pointerEvents = 'none';
       }
 
-      // Umidade buttons
-      const btnUmidAlta = document.getElementById('btn-umid-alta');
-      const btnUmidBaixa = document.getElementById('btn-umid-baixa');
-      if (simState.umidade === 'alta') {
-        btnUmidAlta.className = "p-3 rounded-xl border-2 text-xs font-bold flex flex-col items-center gap-1.5 transition-all border-emerald-700 bg-emerald-50 text-emerald-950";
-        btnUmidBaixa.className = "p-3 rounded-xl border-2 border-stone-200 bg-white text-stone-700 hover:bg-stone-100 text-xs font-bold flex flex-col items-center gap-1.5 transition-all";
+      const btnUmidA = document.getElementById(`${prefix}umid-alta`);
+      const btnUmidB = document.getElementById(`${prefix}umid-baixa`);
+      if (e.umidade === 'alta') {
+        btnUmidA.className = "p-1.5 rounded-xl border-2 text-xs font-bold transition-all border-emerald-700 bg-emerald-50 text-emerald-950";
+        btnUmidB.className = "p-1.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold transition-all";
       } else {
-        btnUmidBaixa.className = "p-3 rounded-xl border-2 text-xs font-bold flex flex-col items-center gap-1.5 transition-all border-amber-700 bg-amber-50 text-amber-950";
-        btnUmidAlta.className = "p-3 rounded-xl border-2 border-stone-200 bg-white text-stone-700 hover:bg-stone-100 text-xs font-bold flex flex-col items-center gap-1.5 transition-all";
+        btnUmidB.className = "p-1.5 rounded-xl border-2 text-xs font-bold transition-all border-amber-700 bg-amber-50 text-amber-950";
+        btnUmidA.className = "p-1.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold transition-all";
       }
 
-      // Acabamento buttons
-      const btnAcabNat = document.getElementById('btn-acab-natural');
-      const btnAcabVern = document.getElementById('btn-acab-verniz');
-      if (simState.acabamento === 'natural') {
-        btnAcabNat.className = "p-2.5 rounded-xl border-2 text-xs font-bold flex flex-col items-center gap-1 transition-all border-emerald-700 bg-emerald-50 text-emerald-950";
-        btnAcabVern.className = "p-2.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 hover:bg-stone-100 text-xs font-bold flex flex-col items-center gap-1 transition-all";
+      const btnAcabN = document.getElementById(`${prefix}acab-nat`);
+      const btnAcabV = document.getElementById(`${prefix}acab-vern`);
+      if (e.acabamento === 'natural') {
+        btnAcabN.className = "p-1.5 rounded-xl border-2 text-xs font-bold transition-all border-emerald-700 bg-emerald-50 text-emerald-950";
+        btnAcabV.className = "p-1.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold transition-all";
       } else {
-        btnAcabVern.className = "p-2.5 rounded-xl border-2 text-xs font-bold flex flex-col items-center gap-1 transition-all border-rose-700 bg-rose-50 text-rose-950";
-        btnAcabNat.className = "p-2.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 hover:bg-stone-100 text-xs font-bold flex flex-col items-center gap-1 transition-all";
+        btnAcabV.className = "p-1.5 rounded-xl border-2 text-xs font-bold transition-all border-rose-700 bg-rose-50 text-rose-950";
+        btnAcabN.className = "p-1.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold transition-all";
       }
     }
 
-    function atualizarDiagnostico() {
-      const distEl = document.getElementById('stat-distancia');
-      const condEl = document.getElementById('stat-condutividade');
-      const frizzEl = document.getElementById('stat-frizz');
-      const diagEl = document.getElementById('sim-diagnostico');
+    function resetSimuladorDuplo() {
+      duploAnimando = false;
+      cancelAnimationFrame(duploAnimationFrameId);
+      exp1.progresso = exp2.progresso = 0;
+      exp1.cargasFios = exp2.cargasFios = 0;
+      exp1.cargasPente = exp2.cargasPente = 0;
+      exp1.frizzAngle = exp2.frizzAngle = 0;
 
-      const isPlasticBehavior = (simState.material === 'pvc') || (simState.material === 'madeira' && simState.acabamento === 'verniz');
+      document.getElementById('duplo-status-esq').innerText = "Exp 1: Pronto";
+      document.getElementById('duplo-status-dir').innerText = "Exp 2: Pronto";
 
-      if (isPlasticBehavior) {
-        distEl.textContent = "Extrema (Alto gap eletrônico)";
-        distEl.className = "font-bold text-rose-700";
-
-        if (simState.umidade === 'baixa') {
-          condEl.textContent = "Nula (Isolante estrito)";
-          condEl.className = "font-bold text-rose-700";
-          frizzEl.textContent = "Máximo Severo (Fios armados)";
-          frizzEl.className = "font-bold text-rose-700";
-          diagEl.className = "mt-4 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-950 text-xs sm:text-sm leading-relaxed";
-          diagEl.innerHTML = `<strong>⚠️ Alerta de Alto Frizz:</strong> O material da superfície comporta-se como polímero isolante. Ao atritar com o cabelo, muitos elétrons saltam para o pente. Sem umidade condutora, as cargas (+) permanecem isoladas nos fios. Pela Lei de Repulsão (cargas iguais se repelem), os fios se afastam desordenadamente.`;
-        } else {
-          condEl.textContent = "Baixa (Plástico repele água)";
-          condEl.className = "font-bold text-amber-700";
-          frizzEl.textContent = "Alto / Persistente";
-          frizzEl.className = "font-bold text-amber-700";
-          diagEl.className = "mt-4 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-950 text-xs sm:text-sm leading-relaxed";
-          diagEl.innerHTML = `<strong>⚡ Carga Elevada Retida:</strong> Mesmo com umidade no ar, polímeros como PVC ou verniz de poliuretano são hidrofóbicos. Eles retêm as cargas estáticas na superfície por muito tempo, mantendo a repulsão entre os fios ativos.`;
-        }
-      } else {
-        // Madeira Natural
-        distEl.textContent = "Curta (Afinidade equilibrada)";
-        distEl.className = "font-bold text-emerald-700";
-
-        if (simState.umidade === 'alta') {
-          condEl.textContent = "Alta (Madeira úmida dissipa)";
-          condEl.className = "font-bold text-emerald-700";
-          frizzEl.textContent = "Mínimo / Alinhamento Suave";
-          frizzEl.className = "font-bold text-emerald-700";
-          diagEl.className = "mt-4 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-xs sm:text-sm leading-relaxed";
-          diagEl.innerHTML = `<strong>🌿 Cenário Ideal de Inhangapi:</strong> A madeira natural absorve umidade do ar amazônico (higroscopia). Isso diminui expressivamente a resistividade superficial do pente. Pouquíssimas cargas são separadas e as poucas existentes escoam rapidamente. Cabelo permanece perfeitamente disciplinado.`;
-        } else {
-          condEl.textContent = "Média (Madeira seca isola mais)";
-          condEl.className = "font-bold text-stone-700";
-          frizzEl.textContent = "Moderado e transitório";
-          frizzEl.className = "font-bold text-stone-700";
-          diagEl.className = "mt-4 p-4 rounded-2xl bg-stone-100 border border-stone-200 text-stone-800 text-xs sm:text-sm leading-relaxed";
-          diagEl.innerHTML = `<strong>🍂 Madeira em Ar Seco:</strong> Em ambiente de clima seco, a madeira perde umidade interna e eleva sua resistividade (Cartão D). O atrito ainda produz leve carga visível nos testes de papel (Cartão B), porém menor que o PVC e dissipa em poucos segundos.`;
-        }
+      if (canvasDuplo) {
+        const rect = canvasDuplo.getBoundingClientRect();
+        desenharCenaDupla(rect.width, rect.height);
       }
     }
 
-    let canvas, ctx;
-    let animationFrameId;
+    function executarPenteadoDuplo() {
+      if (duploAnimando) return;
+      duploAnimando = true;
 
-    function initCanvas() {
-      canvas = document.getElementById('simCanvas');
-      if (!canvas) return;
-      ctx = canvas.getContext('2d');
-
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * window.devicePixelRatio;
-      canvas.height = rect.height * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-
-      drawScene(rect.width, rect.height);
-    }
-
-    window.addEventListener('resize', () => {
-      if (!document.getElementById('section-simulador').classList.contains('hidden')) {
-        initCanvas();
-      }
-    });
-
-    function resetSimulador() {
-      simState.animando = false;
-      simState.progressoPente = 0;
-      simState.cargasFios = 0;
-      simState.cargasPente = 0;
-      simState.frizzAngle = 0;
-      cancelAnimationFrame(animationFrameId);
-
-      document.getElementById('sim-status-text').textContent = "Pronto para teste. Clique em 'Passar o Pente no Cabelo'.";
-      document.getElementById('sim-badge').textContent = "Em repouso";
-      document.getElementById('sim-badge').className = "px-2 py-0.5 rounded text-[10px] font-bold bg-stone-700 text-stone-200";
-
-      if (canvas) {
-        const rect = canvas.getBoundingClientRect();
-        drawScene(rect.width, rect.height);
-      }
-    }
-
-    function executarPenteado() {
-      if (simState.animando) return;
-      simState.animando = true;
-      simState.progressoPente = 0;
-
-      const isPlasticBehavior = (simState.material === 'pvc') || (simState.material === 'madeira' && simState.acabamento === 'verniz');
-
-      document.getElementById('sim-status-text').textContent = "Passando o pente e atritando contra as cutículas capilares...";
-      document.getElementById('sim-badge').textContent = "Atritando";
-      document.getElementById('sim-badge').className = "px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500 text-stone-900 animate-pulse";
-
+      const duracao = 2000;
       let startTime = null;
-      const duration = 1800; // 1.8 seconds pass
 
-      function stepAnimation(timestamp) {
+      const isPlast1 = (exp1.material === 'pvc') || (exp1.material === 'madeira' && exp1.acabamento === 'verniz');
+      const maxCarga1 = isPlast1 ? 1.0 : (exp1.umidade === 'alta' ? 0.2 : 0.45);
+      const maxAngle1 = isPlast1 ? (exp1.umidade === 'baixa' ? 0.42 : 0.28) : (exp1.umidade === 'alta' ? 0.04 : 0.12);
+
+      const isPlast2 = (exp2.material === 'pvc') || (exp2.material === 'madeira' && exp2.acabamento === 'verniz');
+      const maxCarga2 = isPlast2 ? 1.0 : (exp2.umidade === 'alta' ? 0.2 : 0.45);
+      const maxAngle2 = isPlast2 ? (exp2.umidade === 'baixa' ? 0.42 : 0.28) : (exp2.umidade === 'alta' ? 0.04 : 0.12);
+
+      document.getElementById('duplo-status-esq').innerText = "Exp 1: A friccionar...";
+      document.getElementById('duplo-status-dir').innerText = "Exp 2: A friccionar...";
+
+      function frameStep(timestamp) {
         if (!startTime) startTime = timestamp;
         const elapsed = timestamp - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        simState.progressoPente = progress;
+        const progress = Math.min(elapsed / duracao, 1);
 
-        // Charge accumulation during stroke
-        const maxCharge = isPlasticBehavior ? 1.0 : (simState.umidade === 'alta' ? 0.2 : 0.45);
-        simState.cargasFios = progress * maxCharge;
-        simState.cargasPente = progress * maxCharge;
-        simState.frizzAngle = progress * (isPlasticBehavior ? (simState.umidade === 'baixa' ? 0.38 : 0.28) : (simState.umidade === 'alta' ? 0.04 : 0.12));
+        exp1.progresso = exp2.progresso = progress;
+        exp1.cargasFios = progress * maxCarga1;
+        exp1.cargasPente = progress * maxCarga1;
+        exp1.frizzAngle = progress * maxAngle1;
 
-        const rect = canvas.getBoundingClientRect();
-        drawScene(rect.width, rect.height);
+        exp2.cargasFios = progress * maxCarga2;
+        exp2.cargasPente = progress * maxCarga2;
+        exp2.frizzAngle = progress * maxAngle2;
+
+        const rect = canvasDuplo.getBoundingClientRect();
+        desenharCenaDupla(rect.width, rect.height);
 
         if (progress < 1) {
-          animationFrameId = requestAnimationFrame(stepAnimation);
+          duploAnimationFrameId = requestAnimationFrame(frameStep);
         } else {
-          // Finished stroke
-          simState.animando = false;
-          if (isPlasticBehavior) {
-            document.getElementById('sim-status-text').textContent = "Resultado: Alta densidade de carga estática (+)! Fios se repelem mutuamente (Frizz Intenso).";
-            document.getElementById('sim-badge').textContent = "Super Frizz Ativo";
-            document.getElementById('sim-badge').className = "px-2 py-0.5 rounded text-[10px] font-bold bg-rose-600 text-white";
-          } else {
-            if (simState.umidade === 'alta') {
-              document.getElementById('sim-status-text').textContent = "Resultado: Cargas mínimas dissipadas no ato! Fios alinhados e disciplinados.";
-              document.getElementById('sim-badge').textContent = "Fios Alinhados";
-              document.getElementById('sim-badge').className = "px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-600 text-white";
-            } else {
-              document.getElementById('sim-status-text').textContent = "Resultado: Leve eletrização temporária dissipando rapidamente.";
-              document.getElementById('sim-badge').textContent = "Frizz Mínimo";
-              document.getElementById('sim-badge').className = "px-2 py-0.5 rounded text-[10px] font-bold bg-amber-600 text-white";
-            }
-          }
+          duploAnimando = false;
+          document.getElementById('duplo-status-esq').innerText = isPlast1
+            ? "Exp 1: Frizz Ativo (Pontas Arrepiadas)"
+            : (exp1.umidade === 'alta' ? "Exp 1: Fios Alinhados & Cargas Dissipadas" : "Exp 1: Frizz Transitório Leve");
+
+          document.getElementById('duplo-status-dir').innerText = isPlast2
+            ? "Exp 2: Frizz Ativo (Pontas Arrepiadas)"
+            : (exp2.umidade === 'alta' ? "Exp 2: Fios Alinhados & Cargas Dissipadas" : "Exp 2: Frizz Transitório Leve");
         }
       }
 
-      animationFrameId = requestAnimationFrame(stepAnimation);
+      duploAnimationFrameId = requestAnimationFrame(frameStep);
     }
 
-    function drawScene(w, h) {
-      ctx.clearRect(0, 0, w, h);
+    function desenharCenaDupla(w, h) {
+      ctxDuplo.clearRect(0, 0, w, h);
+      const metadeW = w / 2;
+      desenharMetadeCapilar(0, metadeW, h, exp1, "Experimento 1");
+      desenharMetadeCapilar(metadeW, w, h, exp2, "Experimento 2");
+    }
 
-      // 1. Draw head/scalp baseline
-      const headX = w * 0.5;
-      const headY = 40;
+    function desenharMetadeCapilar(xMin, xMax, h, expObj, rotulo) {
+      const largura = xMax - xMin;
+      const headX = xMin + largura * 0.5;
+      const headY = 35;
 
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(headX, headY - 10, 50, 0, Math.PI);
-      ctx.fillStyle = '#f1c27d';
-      ctx.fill();
-      ctx.restore();
+      ctxDuplo.save();
+      ctxDuplo.beginPath();
+      ctxDuplo.arc(headX, headY - 10, 40, 0, Math.PI);
+      ctxDuplo.fillStyle = '#f1c27d';
+      ctxDuplo.fill();
+      ctxDuplo.restore();
 
-      // 2. Draw Hair strands (15 strands)
-      const numFios = 15;
+      ctxDuplo.fillStyle = '#94a3b8';
+      ctxDuplo.font = 'bold 10px sans-serif';
+      ctxDuplo.fillText(rotulo, xMin + 15, 20);
+
+      const numFios = 13;
       const hairLength = h * 0.65;
-      const startX = headX - 45;
-      const stepX = 90 / (numFios - 1);
+      const startX = headX - 35;
+      const stepX = 70 / (numFios - 1);
 
       for (let i = 0; i < numFios; i++) {
         const rootX = startX + i * stepX;
-        const rootY = headY + 30;
+        const rootY = headY + 25;
 
-        // Frizz repulsion: strands on the left curve left, on the right curve right
-        const centerOffset = (i - (numFios - 1) / 2) / ((numFios - 1) / 2); // -1 to 1
-        const maxRepulsionX = centerOffset * simState.frizzAngle * 220;
+        const centerOffset = (i - (numFios - 1) / 2) / ((numFios - 1) / 2);
+        const maxRepulsionX = centerOffset * expObj.frizzAngle * 180;
 
-        ctx.save();
-        ctx.beginPath();
-        ctx.moveTo(rootX, rootY);
+        ctxDuplo.save();
+        ctxDuplo.beginPath();
+        ctxDuplo.moveTo(rootX, rootY);
 
-        // Cubic Bezier curve for flexible strand
-        const cp1x = rootX + maxRepulsionX * 0.3;
-        const cp1y = rootY + hairLength * 0.4;
-        const cp2x = rootX + maxRepulsionX * 0.8;
-        const cp2y = rootY + hairLength * 0.7;
+        const cp1x = rootX + maxRepulsionX * 0.15;
+        const cp1y = rootY + hairLength * 0.35;
+        const cp2x = rootX + maxRepulsionX * 0.65;
+        const cp2y = rootY + hairLength * 0.75;
         const endX = rootX + maxRepulsionX;
         const endY = rootY + hairLength;
 
-        ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, endX, endY);
-        ctx.lineWidth = 3.2;
-        ctx.strokeStyle = '#2b1d0c';
-        ctx.lineCap = 'round';
-        ctx.stroke();
+        ctxDuplo.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, endX, endY);
+        ctxDuplo.lineWidth = 2.5;
+        ctxDuplo.strokeStyle = '#2b1d0c';
+        ctxDuplo.lineCap = 'round';
+        ctxDuplo.stroke();
 
-        // Draw positive charges (+) on hair if energized
-        if (simState.cargasFios > 0.05) {
-          const numCharges = Math.floor(simState.cargasFios * 4);
+        // Efeito das Pontas: Cargas concentradas nas pontas
+        if (expObj.cargasFios > 0.05) {
+          const numCharges = Math.floor(expObj.cargasFios * 5);
+
           for (let c = 1; c <= numCharges; c++) {
-            const t = c / (numCharges + 1);
-            // approximate point on bezier
+            const t = 0.3 + 0.7 * Math.pow(c / numCharges, 1.6);
             const px = (1 - t) * rootX + t * endX;
             const py = (1 - t) * rootY + t * endY;
 
-            ctx.beginPath();
-            ctx.arc(px + 6, py, 5.5, 0, Math.PI * 2);
-            ctx.fillStyle = '#ef4444';
-            ctx.fill();
-            ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 8px sans-serif';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText('+', px + 6, py);
+            const isNaPonta = c >= numCharges - 1;
+            const raio = isNaPonta ? 6 : 4;
+
+            ctxDuplo.beginPath();
+            ctxDuplo.arc(px, py, raio, 0, Math.PI * 2);
+            ctxDuplo.fillStyle = isNaPonta ? '#ef4444' : '#f87171';
+            ctxDuplo.fill();
+            if (isNaPonta) {
+              ctxDuplo.lineWidth = 1;
+              ctxDuplo.strokeStyle = '#fef08a';
+              ctxDuplo.stroke();
+            }
+
+            ctxDuplo.fillStyle = '#ffffff';
+            ctxDuplo.font = isNaPonta ? 'bold 8px sans-serif' : 'bold 6px sans-serif';
+            ctxDuplo.textAlign = 'center';
+            ctxDuplo.textBaseline = 'middle';
+            ctxDuplo.fillText('+', px, py);
           }
         }
-        ctx.restore();
+
+        ctxDuplo.restore();
       }
 
-      // 3. Draw Comb (Passes down across hair)
-      if (simState.progressoPente > 0 && simState.progressoPente < 1) {
-        const combY = headY + 30 + simState.progressoPente * (hairLength - 40);
-        const combX = headX - 60;
-        drawComb(combX, combY, 120, 36);
-      } else if (simState.progressoPente === 0) {
-        // Comb ready above hair
-        drawComb(headX - 60, headY + 10, 120, 36);
+      const isPlastic = (expObj.material === 'pvc');
+      const isVerniz = (expObj.material === 'madeira' && expObj.acabamento === 'verniz');
+
+      if (expObj.progresso > 0 && expObj.progresso < 1) {
+        const combY = headY + 25 + expObj.progresso * (hairLength - 35);
+        const combX = headX - 50;
+        desenharPente(combX, combY, 100, 28, isPlastic, isVerniz, expObj.cargasPente);
+      } else if (expObj.progresso === 0) {
+        desenharPente(headX - 50, headY + 5, 100, 28, isPlastic, isVerniz, 0);
       } else {
-        // Comb parked to the side
-        drawComb(w - 140, h * 0.4, 110, 32);
+        desenharPente(xMax - 95, h * 0.35, 85, 25, isPlastic, isVerniz, expObj.cargasPente);
       }
     }
 
-    function drawComb(x, y, width, height) {
-      ctx.save();
-      const isPlastic = (simState.material === 'pvc');
-      const isVerniz = (simState.material === 'madeira' && simState.acabamento === 'verniz');
-
-      // Comb Back (handle/base)
-      ctx.beginPath();
-      ctx.roundRect(x, y, width, height * 0.45, 8);
+    function desenharPente(x, y, width, height, isPlastic, isVerniz, cargasPente) {
+      ctxDuplo.save();
+      ctxDuplo.beginPath();
+      ctxDuplo.roundRect(x, y, width, height * 0.45, 5);
       if (isPlastic) {
-        ctx.fillStyle = '#06b6d4'; // PVC Cyan
+        ctxDuplo.fillStyle = '#6366f1';
       } else if (isVerniz) {
-        ctx.fillStyle = '#b45309'; // Glossy synthetic wood
+        ctxDuplo.fillStyle = '#b45309';
       } else {
-        ctx.fillStyle = '#8c6239'; // Natural warm wood
+        ctxDuplo.fillStyle = '#8c6239';
       }
-      ctx.fill();
-      ctx.lineWidth = 1.5;
-      ctx.strokeStyle = '#ffffff33';
-      ctx.stroke();
+      ctxDuplo.fill();
 
-      // Comb Teeth (dentes)
-      const numTeeth = 11;
-      const toothSpacing = (width - 16) / (numTeeth - 1);
-      const toothLength = height * 0.9;
+      const numTeeth = 8;
+      const toothSpacing = (width - 12) / (numTeeth - 1);
+      const toothLength = height * 0.85;
 
-      ctx.fillStyle = isPlastic ? '#0891b2' : (isVerniz ? '#92400e' : '#784d28');
+      ctxDuplo.fillStyle = isPlastic ? '#4f46e5' : (isVerniz ? '#92400e' : '#784d28');
       for (let i = 0; i < numTeeth; i++) {
-        const tx = x + 8 + i * toothSpacing;
+        const tx = x + 6 + i * toothSpacing;
         const ty = y + height * 0.45;
-        ctx.beginPath();
-        ctx.roundRect(tx - 2, ty, 4, toothLength, 2);
-        ctx.fill();
+        ctxDuplo.beginPath();
+        ctxDuplo.roundRect(tx - 1.5, ty, 3, toothLength, 1.5);
+        ctxDuplo.fill();
 
-        // Draw negative charges (-) on comb teeth if charged
-        if (simState.cargasPente > 0.08 && i % 2 === 0) {
-          ctx.beginPath();
-          ctx.arc(tx, ty + toothLength - 4, 4.5, 0, Math.PI * 2);
-          ctx.fillStyle = '#06b6d4';
-          ctx.fill();
-          ctx.fillStyle = '#ffffff';
-          ctx.font = 'bold 8px sans-serif';
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.fillText('-', tx, ty + toothLength - 4);
+        if (cargasPente > 0.08 && i % 2 === 0) {
+          ctxDuplo.beginPath();
+          ctxDuplo.arc(tx, ty + toothLength - 3, 3.5, 0, Math.PI * 2);
+          ctxDuplo.fillStyle = '#06b6d4';
+          ctxDuplo.fill();
+          ctxDuplo.fillStyle = '#ffffff';
+          ctxDuplo.font = 'bold 6px sans-serif';
+          ctxDuplo.textAlign = 'center';
+          ctxDuplo.textBaseline = 'middle';
+          ctxDuplo.fillText('-', tx, ty + toothLength - 3);
         }
       }
 
-      // Label on comb
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 9px sans-serif';
-      ctx.textAlign = 'center';
-      const label = isPlastic ? 'PVC / PLÁSTICO' : (isVerniz ? 'MADEIRA COM VERNIZ' : 'MADEIRA INHANGAPI');
-      ctx.fillText(label, x + width / 2, y + 10);
+      ctxDuplo.fillStyle = '#ffffff';
+      ctxDuplo.font = 'bold 7px sans-serif';
+      ctxDuplo.textAlign = 'center';
+      const label = isPlastic ? 'PVC' : (isVerniz ? 'VERNIZ' : 'MADEIRA');
+      ctxDuplo.fillText(label, x + width / 2, y + 8);
 
-      ctx.restore();
+      ctxDuplo.restore();
     }
 
+    /* =========================================================================
+       CARTÃO A: SÉRIE TRIBOELÉTRICA
+       ========================================================================= */
+    let canvasTribo, ctxTribo;
+    let parTriboAtual = 'cabelo-madeira';
+    let triboAnimando = false;
+    let triboProgresso = 0;
+
+    const dadosParesTribo = {
+      'cabelo-madeira': {
+        nomeMaterial2: 'Madeira Seca',
+        corMaterial2: '#8c6239',
+        maxCargas: 4,
+        explicacao: 'O Cabelo Humano cede poucos eletrões para a Madeira Seca. Ambos adquirem cargas elétricas leves, com baixa densidade de estática.'
+      },
+      'cabelo-pvc': {
+        nomeMaterial2: 'PVC (Plástico)',
+        corMaterial2: '#6366f1',
+        maxCargas: 12,
+        explicacao: 'O PVC possui grande afinidade eletrónica e atrai fortemente os eletrões do cabelo. Ocorre uma separação densa de cargas!'
+      },
+      'cabelo-teflon': {
+        nomeMaterial2: 'Teflon',
+        corMaterial2: '#475569',
+        maxCargas: 16,
+        explicacao: 'O Teflon encontra-se na extremidade inferior da série. Arranca uma quantidade massiva de eletrões do cabelo, acumulando estática extrema.'
+      }
+    };
+
+    function initCanvasTribo() {
+      canvasTribo = document.getElementById('canvasTribo');
+      if (!canvasTribo) return;
+      ctxTribo = canvasTribo.getContext('2d');
+      const rect = canvasTribo.getBoundingClientRect();
+      canvasTribo.width = rect.width * window.devicePixelRatio;
+      canvasTribo.height = rect.height * window.devicePixelRatio;
+      ctxTribo.scale(window.devicePixelRatio, window.devicePixelRatio);
+      desenharCenaTribo(rect.width, rect.height);
+    }
+
+    function selecionarParTribo(par) {
+      parTriboAtual = par;
+      triboProgresso = 0;
+      triboAnimando = false;
+
+      document.getElementById('btn-tribo-mad').className = par === 'cabelo-madeira'
+        ? "w-full text-left p-2.5 rounded-xl border-2 text-xs font-bold transition-all border-emerald-700 bg-emerald-50 text-emerald-950 flex justify-between items-center"
+        : "w-full text-left p-2.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 hover:bg-stone-100 text-xs font-bold transition-all flex justify-between items-center";
+
+      document.getElementById('btn-tribo-pvc').className = par === 'cabelo-pvc'
+        ? "w-full text-left p-2.5 rounded-xl border-2 text-xs font-bold transition-all border-indigo-700 bg-indigo-50 text-indigo-950 flex justify-between items-center"
+        : "w-full text-left p-2.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 hover:bg-stone-100 text-xs font-bold transition-all flex justify-between items-center";
+
+      document.getElementById('btn-tribo-tef').className = par === 'cabelo-teflon'
+        ? "w-full text-left p-2.5 rounded-xl border-2 text-xs font-bold transition-all border-rose-700 bg-rose-50 text-rose-950 flex justify-between items-center"
+        : "w-full text-left p-2.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 hover:bg-stone-100 text-xs font-bold transition-all flex justify-between items-center";
+
+      document.getElementById('tribo-explicacao-dinamica').innerText = dadosParesTribo[par].explicacao;
+      document.getElementById('tribo-canvas-status').innerText = 'Par pronto. Pressione "Friccionar".';
+      document.getElementById('tribo-cargas-count').innerText = 'Cargas: 0';
+
+      if (canvasTribo) {
+        const rect = canvasTribo.getBoundingClientRect();
+        desenharCenaTribo(rect.width, rect.height);
+      }
+    }
+
+    function iniciarAtritoTribo() {
+      if (triboAnimando) return;
+      triboAnimando = true;
+      triboProgresso = 0;
+      const duracao = 1400;
+      let inicio = null;
+
+      function animar(tempo) {
+        if (!inicio) inicio = tempo;
+        const decorrido = tempo - inicio;
+        triboProgresso = Math.min(decorrido / duracao, 1);
+
+        const rect = canvasTribo.getBoundingClientRect();
+        desenharCenaTribo(rect.width, rect.height);
+
+        const info = dadosParesTribo[parTriboAtual];
+        const cargasAtuais = Math.floor(triboProgresso * info.maxCargas);
+        document.getElementById('tribo-cargas-count').innerText = `Cargas: ${cargasAtuais}`;
+
+        if (triboProgresso < 1) {
+          requestAnimationFrame(animar);
+        } else {
+          triboAnimando = false;
+          document.getElementById('tribo-canvas-status').innerText = `Atrito finalizado: Cabelo (+) | ${info.nomeMaterial2} (-)`;
+        }
+      }
+      requestAnimationFrame(animar);
+    }
+
+    function desenharCenaTribo(w, h) {
+      ctxTribo.clearRect(0, 0, w, h);
+      const info = dadosParesTribo[parTriboAtual];
+
+      // 1. Régua Triboelétrica com PVC e margem sem sobreposições
+      const escalaX = w - 85; 
+      const topoY = 28;
+      const fimY = h - 42;
+
+      ctxTribo.fillStyle = '#334155';
+      ctxTribo.fillRect(escalaX, topoY, 5, fimY - topoY);
+
+      // + Cabelo
+      ctxTribo.fillStyle = '#ef4444';
+      ctxTribo.beginPath();
+      ctxTribo.arc(escalaX + 2.5, topoY, 4, 0, Math.PI * 2);
+      ctxTribo.fill();
+      ctxTribo.font = 'bold 9px sans-serif';
+      ctxTribo.fillStyle = '#f87171';
+      ctxTribo.textAlign = 'right';
+      ctxTribo.fillText('+ Cabelo', escalaX - 8, topoY + 3);
+
+      // - Madeira
+      const madeiraY = topoY + (fimY - topoY) * 0.38;
+      ctxTribo.fillStyle = '#8c6239';
+      ctxTribo.beginPath();
+      ctxTribo.arc(escalaX + 2.5, madeiraY, 4, 0, Math.PI * 2);
+      ctxTribo.fill();
+      ctxTribo.fillStyle = '#d7ccc8';
+      ctxTribo.fillText('- Madeira', escalaX - 8, madeiraY + 3);
+
+      // - PVC
+      const pvcY = topoY + (fimY - topoY) * 0.72;
+      ctxTribo.fillStyle = '#818cf8';
+      ctxTribo.beginPath();
+      ctxTribo.arc(escalaX + 2.5, pvcY, 4, 0, Math.PI * 2);
+      ctxTribo.fill();
+      ctxTribo.fillStyle = '#a5b4fc';
+      ctxTribo.fillText('- PVC', escalaX - 8, pvcY + 3);
+
+      // - Teflon
+      ctxTribo.fillStyle = '#94a3b8';
+      ctxTribo.beginPath();
+      ctxTribo.arc(escalaX + 2.5, fimY, 4, 0, Math.PI * 2);
+      ctxTribo.fill();
+      ctxTribo.fillStyle = '#cbd5e1';
+      ctxTribo.fillText('- Teflon', escalaX - 8, fimY + 3);
+      ctxTribo.textAlign = 'left';
+
+      // 2. Blocos de atrito mecânico
+      const blocoW = Math.min(w * 0.46, 210);
+      const blocoH = 46;
+      const centroX = 20;
+      const atritoOffset = triboAnimando ? Math.sin(triboProgresso * 30) * 8 : 0;
+
+      // Cabelo Humano (+)
+      ctxTribo.fillStyle = '#3e2723';
+      ctxTribo.beginPath();
+      ctxTribo.roundRect(centroX + atritoOffset, 30, blocoW, blocoH, 6);
+      ctxTribo.fill();
+      ctxTribo.fillStyle = '#ffffff';
+      ctxTribo.font = 'bold 11px sans-serif';
+      ctxTribo.fillText('Cabelo Humano (+)', centroX + 12 + atritoOffset, 57);
+
+      // Material Receptor (-)
+      ctxTribo.fillStyle = info.corMaterial2;
+      ctxTribo.beginPath();
+      ctxTribo.roundRect(centroX - atritoOffset, 105, blocoW, blocoH, 6);
+      ctxTribo.fill();
+      ctxTribo.fillStyle = '#ffffff';
+      ctxTribo.fillText(`${info.nomeMaterial2} (-)`, centroX + 12 - atritoOffset, 132);
+
+      // 3. Cargas transferidas (+ vermelho, - ciano)
+      const totalCargas = Math.floor(triboProgresso * info.maxCargas);
+      for (let i = 0; i < totalCargas; i++) {
+        const xPos = centroX + 18 + (i * 19) % (blocoW - 32);
+
+        // Cargas (+) no Cabelo
+        ctxTribo.fillStyle = '#ef4444';
+        ctxTribo.beginPath();
+        ctxTribo.arc(xPos + atritoOffset, 42, 5, 0, Math.PI * 2);
+        ctxTribo.fill();
+        ctxTribo.fillStyle = '#fff';
+        ctxTribo.font = 'bold 7px sans-serif';
+        ctxTribo.fillText('+', xPos - 2 + atritoOffset, 44);
+
+        // Eletrões (-) no Material
+        ctxTribo.fillStyle = '#06b6d4';
+        ctxTribo.beginPath();
+        ctxTribo.arc(xPos - atritoOffset, 117, 5, 0, Math.PI * 2);
+        ctxTribo.fill();
+        ctxTribo.fillStyle = '#fff';
+        ctxTribo.fillText('-', xPos - 1.5 - atritoOffset, 119);
+      }
+    }
+
+    /* =========================================================================
+       CARTÃO B: 5 ENSAIOS DE LABORATÓRIO
+       ========================================================================= */
+    let canvasLab, ctxLab;
+    let casoLabAtual = 1;
+    let labAnimando = false;
+    let labCargaResidual = 0;
+    let labTimerId = null;
+
+    const dadosCasosLab = {
+      1: {
+        titulo: "Ensaio 1: Cabelo × Madeira Seca",
+        natureza: "Cabelo (+) / Madeira (-)",
+        obs: "Atração visível de fragmentos de papel; o efeito decresce e dissipa-se rapidamente.",
+        corObjeto: "#8c6239",
+        decayRate: 0.035,
+        cargasMax: 5
+      },
+      2: {
+        titulo: "Ensaio 2: Cabelo × PVC",
+        natureza: "Cabelo (+) / PVC (-)",
+        obs: "Atração nítida e expressiva; cargas permanecem retidas por um longo período.",
+        corObjeto: "#6366f1",
+        decayRate: 0.003,
+        cargasMax: 14
+      },
+      3: {
+        titulo: "Ensaio 3: Cabelo × Teflon",
+        natureza: "Cabelo (+) / Teflon (-)",
+        obs: "Atração intensa; retenção de carga máxima na superfície do polímero.",
+        corObjeto: "#475569",
+        decayRate: 0.002,
+        cargasMax: 16
+      },
+      4: {
+        titulo: "Ensaio 4: Madeira × PVC",
+        natureza: "Madeira (+) / PVC (-)",
+        obs: "Ambos os materiais adquirem cargas contrárias e atraem-se mutuamente.",
+        corObjeto: "#8c6239",
+        corParceiro: "#6366f1",
+        decayRate: 0.012,
+        cargasMax: 8
+      },
+      5: {
+        titulo: "Ensaio 5: Vidro × Seda",
+        natureza: "Vidro (+) / Seda (-)",
+        obs: "Materiais clássicos demonstrando naturezas elétricas opostas de referência.",
+        corObjeto: "#93c5fd",
+        corParceiro: "#f472b6",
+        decayRate: 0.01,
+        cargasMax: 10
+      }
+    };
+
+    function initCanvasLab() {
+      canvasLab = document.getElementById('canvasLab');
+      if (!canvasLab) return;
+      ctxLab = canvasLab.getContext('2d');
+      const rect = canvasLab.getBoundingClientRect();
+      canvasLab.width = rect.width * window.devicePixelRatio;
+      canvasLab.height = rect.height * window.devicePixelRatio;
+      ctxLab.scale(window.devicePixelRatio, window.devicePixelRatio);
+      desenharCenaLab(rect.width, rect.height);
+    }
+
+    function selecionarCasoLab(num) {
+      casoLabAtual = num;
+      labAnimando = false;
+      labCargaResidual = 0;
+      cancelAnimationFrame(labTimerId);
+
+      for (let i = 1; i <= 5; i++) {
+        const btn = document.getElementById(`tab-caso-${i}`);
+        if (i === num) {
+          btn.className = "caso-btn p-2 rounded-xl border-2 text-xs font-bold text-center border-amber-600 bg-amber-50 text-amber-900";
+        } else {
+          btn.className = "caso-btn p-2 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold text-center";
+        }
+      }
+
+      const c = dadosCasosLab[num];
+      document.getElementById('caso-titulo').innerText = c.titulo;
+      document.getElementById('caso-tag-natureza').innerText = c.natureza;
+      document.getElementById('caso-observacao').innerText = c.obs;
+      document.getElementById('lab-timer-text').innerText = "Cronómetro: Em espera";
+      document.getElementById('lab-status-text').innerText = "Neutro";
+
+      if (canvasLab) {
+        const rect = canvasLab.getBoundingClientRect();
+        desenharCenaLab(rect.width, rect.height);
+      }
+    }
+
+    function dispararTesteLab() {
+      labAnimando = true;
+      labCargaResidual = 1.0;
+      const c = dadosCasosLab[casoLabAtual];
+      let startTime = performance.now();
+
+      function stepLab(timestamp) {
+        const elapsed = (timestamp - startTime) / 1000;
+        labCargaResidual = Math.max(0, labCargaResidual - c.decayRate);
+
+        const rect = canvasLab.getBoundingClientRect();
+        desenharCenaLab(rect.width, rect.height);
+
+        document.getElementById('lab-timer-text').innerText = `Tempo: ${elapsed.toFixed(1)}s | Carga: ${(labCargaResidual * 100).toFixed(0)}%`;
+        document.getElementById('lab-status-text').innerText = labCargaResidual > 0.05 ? "A atrair papéis" : "Dissipado";
+
+        if (labCargaResidual > 0) {
+          labTimerId = requestAnimationFrame(stepLab);
+        } else {
+          labAnimando = false;
+        }
+      }
+      cancelAnimationFrame(labTimerId);
+      labTimerId = requestAnimationFrame(stepLab);
+    }
+
+    function desenharCenaLab(w, h) {
+      ctxLab.clearRect(0, 0, w, h);
+      const c = dadosCasosLab[casoLabAtual];
+
+      if (casoLabAtual <= 3) {
+        const bastaoW = w * 0.58;
+        const bastaoH = 36;
+        const bastaoX = (w - bastaoW) / 2;
+        const bastaoY = 40;
+
+        ctxLab.fillStyle = c.corObjeto;
+        ctxLab.beginPath();
+        ctxLab.roundRect(bastaoX, bastaoY, bastaoW, bastaoH, 6);
+        ctxLab.fill();
+
+        ctxLab.fillStyle = '#ffffff';
+        ctxLab.font = 'bold 11px sans-serif';
+        ctxLab.fillText(c.titulo.split(':')[1], bastaoX + 15, bastaoY + 22);
+
+        const totalCargas = Math.floor(labCargaResidual * c.cargasMax);
+        for (let i = 0; i < totalCargas; i++) {
+          const cx = bastaoX + 12 + (i * 22) % (bastaoW - 25);
+          ctxLab.fillStyle = '#06b6d4';
+          ctxLab.beginPath();
+          ctxLab.arc(cx, bastaoY + 18, 4.5, 0, Math.PI * 2);
+          ctxLab.fill();
+        }
+
+        const mesaY = h - 45;
+        ctxLab.fillStyle = '#334155';
+        ctxLab.fillRect(15, mesaY, w - 30, 2);
+
+        const numPapeis = 12;
+        for (let i = 0; i < numPapeis; i++) {
+          const px = 30 + i * ((w - 60) / numPapeis);
+          const deveSubir = (i < totalCargas);
+          const papelY = deveSubir ? (bastaoY + bastaoH + 10 + Math.sin(i * 3 + performance.now() * 0.005) * 5) : (mesaY - 6);
+
+          ctxLab.save();
+          ctxLab.translate(px, papelY);
+          ctxLab.rotate(deveSubir ? 0.35 : 0);
+          ctxLab.fillStyle = deveSubir ? '#fbbf24' : '#e2e8f0';
+          ctxLab.fillRect(-4, -4, 8, 8);
+          ctxLab.restore();
+        }
+      } else {
+        const centroY = h * 0.45;
+        const afastamento = labAnimando ? Math.max(15, 80 - (1 - labCargaResidual) * 55) : 65;
+
+        ctxLab.fillStyle = c.corObjeto;
+        ctxLab.beginPath();
+        ctxLab.roundRect(w * 0.5 - afastamento - 50, centroY - 25, 50, 50, 6);
+        ctxLab.fill();
+        ctxLab.fillStyle = '#fff';
+        ctxLab.font = 'bold 10px sans-serif';
+        ctxLab.fillText(casoLabAtual === 4 ? 'Madeira' : 'Vidro', w * 0.5 - afastamento - 44, centroY + 4);
+
+        ctxLab.fillStyle = c.corParceiro;
+        ctxLab.beginPath();
+        ctxLab.roundRect(w * 0.5 + afastamento, centroY - 25, 50, 50, 6);
+        ctxLab.fill();
+        ctxLab.fillStyle = '#fff';
+        ctxLab.fillText(casoLabAtual === 4 ? 'PVC' : 'Seda', w * 0.5 + afastamento + 12, centroY + 4);
+
+        ctxLab.strokeStyle = '#fbbf24';
+        ctxLab.lineWidth = 1.5;
+        ctxLab.beginPath();
+        ctxLab.moveTo(w * 0.5 - afastamento + 5, centroY);
+        ctxLab.lineTo(w * 0.5 + afastamento - 5, centroY);
+        ctxLab.stroke();
+
+        ctxLab.fillStyle = '#fbbf24';
+        ctxLab.font = 'bold 10px sans-serif';
+        ctxLab.textAlign = 'center';
+        ctxLab.fillText('← Atração Mútua →', w * 0.5, centroY - 10);
+        ctxLab.textAlign = 'start';
+      }
+    }
+
+    /* =========================================================================
+       QUIZ GABARITO & FIXAÇÃO
+       ========================================================================= */
     const quizGabarito = {
       1: {
         correto: false,
-        explicacao: "MITO! A madeira é isolante, mas isolantes também se eletrizam por atrito superficial! O diferencial da madeira é a proximidade na série e a taxa de dissipação, não a imunidade a cargas."
+        explicacao: "MITO! A madeira é isolante, mas os corpos isolantes também se eletrizam por atrito na superfície. O diferencial consiste na sua proximidade com o cabelo na série triboelétrica e na sua taxa acelerada de dissipação."
       },
       2: {
         correto: true,
-        explicacao: "VERDADE! Pela Lei de Du Fay, cargas de mesmo sinal se repelem (+ repele +). Como todos os fios doam elétrons e ficam positivos, eles se repelem e abrem em leque (frizz eletrostático)."
+        explicacao: "VERDADE! Cargas com o mesmo sinal repelem-se (+ com +). Por possuírem raio de curvatura reduzido nas pontas, a densidade de carga e o campo elétrico atingem o seu máximo nessa zona, fazendo com que os fios abram em leque."
       },
       3: {
         correto: false,
-        explicacao: "MITO! O verniz sintético (como poliuretano) é um polímero que blinda os microporos da madeira, agindo exatamente como um plástico e retendo eletricidade estática!"
+        explicacao: "MITO! O verniz sintético impermeabiliza a madeira e atua exatamente como um plástico polimérico, retendo eletricidade estática durante um período prolongado."
       },
       4: {
         correto: false,
-        explicacao: "MITO! O frizz é multifatorial: depende da cutícula capilar, quebra, formato do fio e umidade atmosférica interna da fibra capilar. O pente alivia o estático, mas não é cura universal."
+        explicacao: "MITO! O frizz é multifatorial: depende da integridade da cutícula, porosidade, curvatura natural e nível de hidratação interno da fibra capilar."
       }
     };
 
@@ -1135,29 +1439,34 @@
       const botoes = document.querySelectorAll(`#q${num} .quiz-btn`);
 
       botoes.forEach(b => b.classList.add('opacity-50', 'pointer-events-none'));
-
       respBox.classList.remove('hidden');
 
       if (resposta === q.correto) {
         quizAcertos[num] = true;
-        respBox.className = "text-xs p-3 rounded-xl bg-emerald-500/20 border border-emerald-400 text-emerald-100";
+        respBox.className = "text-xs p-2.5 rounded-lg bg-emerald-500/20 border border-emerald-400 text-emerald-100";
         respBox.innerHTML = `<strong>✅ Exato!</strong> ${q.explicacao}`;
       } else {
         quizAcertos[num] = false;
-        respBox.className = "text-xs p-3 rounded-xl bg-rose-500/20 border border-rose-400 text-rose-100";
+        respBox.className = "text-xs p-2.5 rounded-lg bg-rose-500/20 border border-rose-400 text-rose-100";
         respBox.innerHTML = `<strong>❌ Incorreto.</strong> ${q.explicacao}`;
       }
 
-      // Update total score
       const total = Object.values(quizAcertos).filter(v => v === true).length;
       document.getElementById('quiz-score').textContent = total;
     }
 
-    // Window load handler
+    window.addEventListener('resize', () => {
+      if (!document.getElementById('section-simulador').classList.contains('hidden')) initCanvasDuplo();
+      if (!document.getElementById('section-cartoes').classList.contains('hidden')) {
+        initCanvasTribo();
+        initCanvasLab();
+      }
+    });
+
     window.onload = function() {
-      initCanvas();
-      atualizarDiagnostico();
-      atualizarBotoesUI();
+      initCanvasDuplo();
+      atualizarBotoesDuploUI(1);
+      atualizarBotoesDuploUI(2);
     };
   </script>
 </body>
