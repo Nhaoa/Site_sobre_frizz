@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -47,10 +46,10 @@
     }
   </style>
 </head>
-<body class="bg-[#FAF7F2] text-stone-800 antialiased font-sans selection:bg-floresta-100 selection:text-floresta-800">
+<body class="bg-[#FAF7F2] text-stone-800 antialiased font-sans selection:bg-floresta-100 selection:text-floresta-800 relative">
 
   <!-- Cabeçalho Institucional -->
-  <header class="sticky top-0 z-50 glass-card border-b border-madeira-200 shadow-sm transition-all">
+  <header class="sticky top-0 z-40 glass-card border-b border-madeira-200 shadow-sm transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-floresta-700 to-madeira-800 text-amber-100 flex items-center justify-center font-serif text-xl font-bold shadow-md">
@@ -65,7 +64,7 @@
       <!-- Abas de Navegação -->
       <nav class="hidden lg:flex items-center gap-1 bg-stone-100/90 p-1.5 rounded-2xl border border-stone-200/80">
         <button onclick="switchTab('veredito')" id="nav-veredito" class="tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold transition-all bg-white text-floresta-800 shadow-sm">
-          ⚖️ Parecer & Equipa
+          ⚖️ Parecer & Equipe
         </button>
         <button onclick="switchTab('simulador')" id="nav-simulador" class="tab-btn px-3 py-1.5 rounded-xl text-xs font-medium text-stone-600 hover:text-stone-900 transition-all">
           ⚡ Comparador Simultâneo
@@ -76,23 +75,143 @@
         <button onclick="switchTab('parecer')" id="nav-parecer" class="tab-btn px-3 py-1.5 rounded-xl text-xs font-medium text-stone-600 hover:text-stone-900 transition-all">
           🪵 Recomendações & Quiz
         </button>
+        <button onclick="toggleDicionario()" class="px-3 py-1.5 rounded-xl text-xs font-bold text-amber-800 bg-amber-100 hover:bg-amber-200 border border-amber-300 transition-all flex items-center gap-1">
+          📖 Enciclopédia
+        </button>
       </nav>
 
       <!-- Seletor Mobile -->
-      <div class="lg:hidden flex items-center">
+      <div class="lg:hidden flex items-center gap-2">
         <select onchange="switchTab(this.value)" class="text-xs font-semibold bg-stone-100 border border-stone-300 rounded-lg p-2 text-stone-700">
-          <option value="veredito">⚖️ Parecer & Equipa</option>
+          <option value="veredito">⚖️ Parecer & Equipe</option>
           <option value="simulador">⚡ Comparador Simultâneo</option>
           <option value="cartoes">📑 4 Cartões (A-D)</option>
           <option value="parecer">🪵 Recomendações & Quiz</option>
         </select>
+        <button onclick="toggleDicionario()" class="p-2 rounded-lg bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold">
+          📖
+        </button>
       </div>
     </div>
   </header>
 
+  <!-- GAVETA RETRÁTIL: DICIONÁRIO & ENCICLOPÉDIA DE TERMOS CIENTÍFICOS -->
+  <aside id="dicionario-drawer" class="fixed top-0 right-0 w-full sm:w-96 h-full bg-white z-50 shadow-2xl border-l border-stone-200 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    <!-- Topo da Gaveta -->
+    <div class="p-5 border-b border-stone-200 bg-gradient-to-r from-madeira-100 to-white flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-lg">📖</span>
+        <div>
+          <h3 class="font-extrabold text-stone-900 text-sm">Enciclopédia de Conceitos</h3>
+          <p class="text-[10px] text-stone-500">Termos da física explicados de forma simples</p>
+        </div>
+      </div>
+      <button onclick="toggleDicionario()" class="w-8 h-8 rounded-full bg-stone-200 hover:bg-stone-300 text-stone-700 flex items-center justify-center font-bold text-xs transition-all">
+        ✕
+      </button>
+    </div>
+
+    <!-- Lista com barra de rolagem -->
+    <div class="flex-1 overflow-y-auto p-5 space-y-4 text-xs">
+      
+      <!-- Termo 1 -->
+      <div class="p-3.5 bg-stone-50 rounded-2xl border border-stone-200 space-y-1">
+        <span class="font-bold text-floresta-800 text-xs flex items-center justify-between">
+          <span>1. Triboeletricidade / Série Triboelétrica</span>
+          <span class="text-[9px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded uppercase">Eletrostática</span>
+        </span>
+        <p class="text-stone-600 leading-relaxed text-[11px]">
+          É a eletrização provocada pelo atrito entre dois materiais. A <em>Série Triboelétrica</em> é uma lista hierárquica que indica quem tem maior facilidade em perder elétrons (ficando positivo) ou em ganhar elétrons (ficando negativo).
+        </p>
+      </div>
+
+      <!-- Termo 2 -->
+      <div class="p-3.5 bg-stone-50 rounded-2xl border border-stone-200 space-y-1">
+        <span class="font-bold text-floresta-800 text-xs flex items-center justify-between">
+          <span>2. Higroscopia</span>
+          <span class="text-[9px] bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded uppercase">Ciência dos Materiais</span>
+        </span>
+        <p class="text-stone-600 leading-relaxed text-[11px]">
+          Propriedade de certos materiais (como a madeira e fibras de celulose) de absorver ou liberar vapor de água do ar em função da umidade ambiente. Madeira úmida conduz e escoa eletricidade estática muito melhor do que madeira seca.
+        </p>
+      </div>
+
+      <!-- Termo 3 -->
+      <div class="p-3.5 bg-stone-50 rounded-2xl border border-stone-200 space-y-1">
+        <span class="font-bold text-floresta-800 text-xs flex items-center justify-between">
+          <span>3. Poder das Pontas (Efeito das Pontas)</span>
+          <span class="text-[9px] bg-purple-100 text-purple-800 px-1.5 py-0.5 rounded uppercase">Campo Elétrico</span>
+        </span>
+        <p class="text-stone-600 leading-relaxed text-[11px]">
+          Princípio que mostra que as cargas elétricas se acumulam onde o raio de curvatura é mínimo (zonas pontiagudas ou afiladas). Nas pontas dos fios de cabelo, a concentração de carga é máxima, provocando a repulsão que deixa as pontas espetadas.
+        </p>
+      </div>
+
+      <!-- Termo 4 -->
+      <div class="p-3.5 bg-stone-50 rounded-2xl border border-stone-200 space-y-1">
+        <span class="font-bold text-floresta-800 text-xs flex items-center justify-between">
+          <span>4. Resistividade Elétrica</span>
+          <span class="text-[9px] bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded uppercase">Propriedade Física</span>
+        </span>
+        <p class="text-stone-600 leading-relaxed text-[11px]">
+          A oposição intrínseca que um corpo oferece à passagem de cargas. O plástico tem resistividade altíssima (retém cargas por muito tempo); já a madeira amazônica úmida tem resistividade menor, permitindo a dissipação rápida da estática.
+        </p>
+      </div>
+
+      <!-- Termo 5 -->
+      <div class="p-3.5 bg-stone-50 rounded-2xl border border-stone-200 space-y-1">
+        <span class="font-bold text-floresta-800 text-xs flex items-center justify-between">
+          <span>5. Densidade Superficial de Carga (σ)</span>
+          <span class="text-[9px] bg-rose-100 text-rose-800 px-1.5 py-0.5 rounded uppercase">Física Matemática</span>
+        </span>
+        <p class="text-stone-600 leading-relaxed text-[11px]">
+          Quantidade de carga elétrica distribuída por unidade de área de superfície. Quanto menor a área física de uma ponta, maior é a sua densidade de carga e mais intensa é a força de repulsão eletrostática.
+        </p>
+      </div>
+
+      <!-- Termo 6 -->
+      <div class="p-3.5 bg-stone-50 rounded-2xl border border-stone-200 space-y-1">
+        <span class="font-bold text-floresta-800 text-xs flex items-center justify-between">
+          <span>6. Fissura e Cisalhamento Cuticular</span>
+          <span class="text-[9px] bg-stone-200 text-stone-800 px-1.5 py-0.5 rounded uppercase">Biofísica Capilar</span>
+        </span>
+        <p class="text-stone-600 leading-relaxed text-[11px]">
+          O atrito mecânico ríspido (como rebarbas num pente) arranha as escamas externas protetoras do fio (cutícula), causando atrito mecânico que também gera desalinhamento e quebra dos fios.
+        </p>
+      </div>
+
+      <!-- Termo 7 -->
+      <div class="p-3.5 bg-stone-50 rounded-2xl border border-stone-200 space-y-1">
+        <span class="font-bold text-floresta-800 text-xs flex items-center justify-between">
+          <span>7. Polímero Oclusivo</span>
+          <span class="text-[9px] bg-stone-200 text-stone-800 px-1.5 py-0.5 rounded uppercase">Química Aplicada</span>
+        </span>
+        <p class="text-stone-600 leading-relaxed text-[11px]">
+          Camada impermeável criada por vernizes de poliuretano ou resinas sintéticas. Ao selar os poros da madeira, o fio de cabelo entra em contato com o plástico do verniz e não com a madeira pura.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Rodapé da Gaveta -->
+    <div class="p-4 border-t border-stone-200 bg-stone-50 text-center">
+      <button onclick="toggleDicionario()" class="w-full py-2 rounded-xl bg-floresta-700 hover:bg-floresta-800 text-white font-bold text-xs transition-all">
+        Fechar Enciclopédia
+      </button>
+    </div>
+  </aside>
+
+  <!-- Fundo escuro ao abrir gaveta -->
+  <div id="dicionario-backdrop" onclick="toggleDicionario()" class="fixed inset-0 bg-black/40 z-40 hidden transition-opacity"></div>
+
+  <!-- Botão Flutuante de Acesso Rápido -->
+  <button onclick="toggleDicionario()" class="fixed bottom-5 right-5 z-30 px-3.5 py-2.5 rounded-full bg-gradient-to-r from-amber-600 to-madeira-800 text-white shadow-xl hover:shadow-2xl border border-amber-300/40 text-xs font-bold flex items-center gap-2 transform hover:scale-105 active:scale-95 transition-all">
+    <span>📖</span> <span>Conceitos & Dicionário</span>
+  </button>
+
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
 
-    <!-- Card Académico / Identificação do Trabalho -->
+    <!-- Card Acadêmico / Identificação do Trabalho -->
     <section class="rounded-3xl bg-gradient-to-r from-floresta-900 via-floresta-800 to-madeira-900 text-white p-6 sm:p-8 relative overflow-hidden shadow-xl border border-emerald-950">
       <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
         <div class="lg:col-span-7 space-y-2">
@@ -110,7 +229,7 @@
 
         <div class="lg:col-span-5 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/15 space-y-1.5 text-xs">
           <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-300 block mb-1">
-            Autores do Projeto (Turma 2024 - Ordem Alfabética):
+            Autores do Projeto (Turma 2024):
           </span>
           <ul class="space-y-1 font-medium text-stone-100">
             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Ademir Vilhena Barbosa Neto</li>
@@ -176,7 +295,7 @@
                 "Sustentável da raiz às pontas: os nossos pentes de madeira reduzem a eletricidade estática e alinham os fios naturalmente."
               </p>
               <p class="mt-1 text-[11px] text-emerald-800">
-                A nova versão substitui a promessa cosmética generalista por factos comprovados em laboratório: atenuação da carga estática e alinhamento mecânico suave dos fios.
+                A nova versão substitui a promessa cosmética generalista por fatos comprovados em laboratório: atenuação da carga estática e alinhamento mecânico suave dos fios.
               </p>
             </div>
           </div>
@@ -189,7 +308,7 @@
             </h4>
             <div class="space-y-2 text-xs">
               <div class="p-2.5 bg-white rounded-xl border border-stone-200">
-                <strong>Cartão A:</strong> Cabelo e madeira estão próximos na série triboelétrica, resultando numa menor troca de eletrões por contacto mecânico.
+                <strong>Cartão A:</strong> Cabelo e madeira estão próximos na série triboelétrica, resultando numa menor troca de elétrons por contato mecânico.
               </div>
               <div class="p-2.5 bg-white rounded-xl border border-stone-200">
                 <strong>Cartão B:</strong> A carga na madeira é mais fraca e dissipa-se rapidamente; no plástico, persiste retida durante um longo intervalo.
@@ -198,7 +317,7 @@
                 <strong>Cartão C:</strong> Fios carregados com cargas do mesmo sinal repelem-se mutuamente, afastando-se do feixe alinhado.
               </div>
               <div class="p-2.5 bg-white rounded-xl border border-stone-200">
-                <strong>Cartão D:</strong> A humidade amazónica reduz a resistividade da madeira pura; vernizes sintéticos anulam essa vantagem ao atuar como plástico.
+                <strong>Cartão D:</strong> A umidade amazônica reduz a resistividade da madeira pura; vernizes sintéticos anulam essa vantagem ao atuar como plástico.
               </div>
             </div>
             <button onclick="switchTab('simulador')" class="w-full py-2.5 rounded-xl bg-floresta-700 hover:bg-floresta-800 text-white text-xs font-bold transition-all mt-2">
@@ -216,7 +335,7 @@
       <section class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200">
         <div class="flex items-center gap-2 mb-2">
           <span class="px-2.5 py-0.5 text-[10px] font-extrabold uppercase rounded-lg bg-purple-100 text-purple-900 border border-purple-200">
-            Fenómeno Eletrostático
+            Fenômeno Eletrostático
           </span>
           <span class="text-xs text-stone-500 font-semibold">Densidade Superficial de Carga nas Extremidades</span>
         </div>
@@ -253,7 +372,7 @@
           <span class="text-xs text-stone-500">Configure dois cenários e observe a dinâmica física lado a lado</span>
         </div>
 
-        <!-- Controlos Lado a Lado -->
+        <!-- Controles Lado a Lado -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
           
           <!-- Experimento 1 -->
@@ -278,7 +397,7 @@
             </div>
 
             <div>
-              <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Humidade Relativa</label>
+              <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Umidade Relativa</label>
               <div class="grid grid-cols-2 gap-2">
                 <button type="button" onclick="setParamExp(1, 'umidade', 'alta')" id="btn-exp1-umid-alta" class="p-1.5 rounded-xl border-2 text-xs font-bold transition-all border-emerald-700 bg-emerald-50 text-emerald-950">
                   🌧️ Alta (~80% PA)
@@ -324,7 +443,7 @@
             </div>
 
             <div>
-              <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Humidade Relativa</label>
+              <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Umidade Relativa</label>
               <div class="grid grid-cols-2 gap-2">
                 <button type="button" onclick="setParamExp(2, 'umidade', 'alta')" id="btn-exp2-umid-alta" class="p-1.5 rounded-xl border-2 border-stone-200 bg-white text-stone-700 text-xs font-bold transition-all">
                   🌧️ Alta (~80% PA)
@@ -394,7 +513,7 @@
             <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-blue-100 text-blue-900">CARTÃO A</span>
             <h3 class="text-lg font-bold text-stone-900">Série Triboelétrica Interativa</h3>
           </div>
-          <span class="text-xs text-stone-500 font-medium">Afinidade Eletrónica</span>
+          <span class="text-xs text-stone-500 font-medium">Afinidade Eletrônica</span>
         </div>
 
         <div class="bg-amber-50/70 border-l-4 border-amber-500 p-3.5 rounded-r-xl text-xs text-amber-950">
@@ -424,7 +543,7 @@
             </button>
 
             <p id="tribo-explicacao-dinamica" class="text-[11px] text-stone-600 bg-white p-2.5 rounded-lg border border-stone-200">
-              O cabelo humano cede eletrões (+); a madeira recebe uma quantidade reduzida de eletrões (-), mantendo baixa a densidade superficial de carga estática.
+              O cabelo humano cede elétrons (+); a madeira recebe uma quantidade reduzida de elétrons (-), mantendo baixa a densidade superficial de carga estática.
             </p>
           </div>
 
@@ -496,7 +615,7 @@
             <div class="relative w-full h-64 bg-stone-900 rounded-2xl overflow-hidden border border-stone-700">
               <canvas id="canvasLab" class="w-full h-full block"></canvas>
               <div class="absolute bottom-2 left-2 right-2 bg-black/70 text-stone-200 text-[10px] px-2.5 py-1 rounded flex justify-between">
-                <span id="lab-timer-text">Cronómetro: Em espera</span>
+                <span id="lab-timer-text">Cronômetro: Em espera</span>
                 <span id="lab-status-text" class="text-amber-300 font-bold">Neutro</span>
               </div>
             </div>
@@ -515,7 +634,7 @@
         </div>
 
         <div class="bg-purple-50/70 border-l-4 border-purple-500 p-3.5 rounded-r-xl text-xs text-purple-950">
-          <strong>Síntese do Cartão C:</strong> Quando os fios de cabelo adquirem cargas elétricas do mesmo sinal, repelem-se mutuamente e afastam-se. É deste modo que o frizz eletrostático se manifesta. Como a madeira acumula pouca carga e facilita o escoamento elétrico, essa força de repulsão é menor e possui menor duração, auxiliando a manter os fios alinhados. Contudo, a eletricidade estática é apenas um dos fatores determinantes: humidade, danos na fibra e estrutura do fio também afetam diretamente o resultado.
+          <strong>Síntese do Cartão C:</strong> Quando os fios de cabelo adquirem cargas elétricas do mesmo sinal, repelem-se mutuamente e afastam-se. É deste modo que o frizz eletrostático se manifesta. Como a madeira acumula pouca carga e facilita o escoamento elétrico, essa força de repulsão é menor e possui menor duração, auxiliando a manter os fios alinhados. Contudo, a eletricidade estática é apenas um dos fatores determinantes: umidade, danos na fibra e estrutura do fio também afetam diretamente o resultado.
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-stone-600">
@@ -524,8 +643,8 @@
             Fios neutros, agrupados e com alinhamento paralelo inicial em equilíbrio mecânico.
           </div>
           <div class="p-3 bg-stone-50 rounded-xl border border-stone-200">
-            <strong class="text-stone-900 block mb-1">2. Durante o Contacto</strong>
-            O atrito mecânico constante entre o pente e os fios produz separação e fluxo superficial de eletrões.
+            <strong class="text-stone-900 block mb-1">2. Durante o Contato</strong>
+            O atrito mecânico constante entre o pente e os fios produz separação e fluxo superficial de elétrons.
           </div>
           <div class="p-3 bg-stone-50 rounded-xl border border-rose-200 bg-rose-50/60 text-rose-950">
             <strong class="block mb-1">3. Após a Eletrização</strong>
@@ -534,18 +653,18 @@
         </div>
       </section>
 
-      <!-- CARTÃO D: MADEIRA, HUMIDADE E ACABAMENTO -->
+      <!-- CARTÃO D: MADEIRA, UMIDADE E ACABAMENTO -->
       <section class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200 space-y-4">
         <div class="flex items-center justify-between border-b border-stone-200 pb-3">
           <div class="flex items-center gap-2">
             <span class="px-2.5 py-1 rounded-md text-xs font-extrabold bg-emerald-100 text-emerald-900">CARTÃO D</span>
-            <h3 class="text-lg font-bold text-stone-900">Madeira, Humidade e Acabamento</h3>
+            <h3 class="text-lg font-bold text-stone-900">Madeira, Umidade e Acabamento</h3>
           </div>
           <span class="text-xs text-stone-500 font-medium">Higroscopia dos Materiais</span>
         </div>
 
         <div class="bg-emerald-50/70 border-l-4 border-emerald-500 p-3.5 rounded-r-xl text-xs text-emerald-950">
-          <strong>Síntese do Cartão D:</strong> A madeira é um material higroscópico, trocando humidade permanentemente com o ambiente. Quanto mais húmida estiver, menor se torna a sua resistividade elétrica, permitindo a dissipação célere de cargas estáticas. Em contrapartida, em ambientes muito secos, a madeira atua mais como isolante e a sua capacidade de escoamento diminui. Por fim, se o pente for revestido com vernizes sintéticos, é essa camada polimérica impermeável que entrará em contacto com o cabelo, alterando totalmente o comportamento elétrico do produto.
+          <strong>Síntese do Cartão D:</strong> A madeira é um material higroscópico, trocando umidade permanentemente com o ambiente. Quanto mais úmida estiver, menor se torna a sua resistividade elétrica, permitindo a dissipação célere de cargas estáticas. Em contrapartida, em ambientes muito secos, a madeira atua mais como isolante e a sua capacidade de escoamento diminui. Por fim, se o pente for revestido com vernizes sintéticos, é essa camada polimérica impermeável que entrará em contato com o cabelo, alterando totalmente o comportamento elétrico do produto.
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-stone-600">
@@ -554,7 +673,7 @@
               <span>🌧️</span> A Vantagem de Inhangapi / Pará
             </h4>
             <p class="leading-relaxed">
-              O ambiente equatorial amazónico apresenta humidade relativa média do ar elevada (&gt;75%). As microfibras de celulose da madeira absorvem vapor de água, reduzindo exponencialmente a sua resistividade e drenando cargas superficiais antes da dispersão rebelde dos fios.
+              O ambiente equatorial amazônico apresenta umidade relativa média do ar elevada (&gt;75%). As microfibras de celulose da madeira absorvem vapor de água, reduzindo exponencialmente a sua resistividade e drenando cargas superficiais antes da dispersão rebelde dos fios.
             </p>
           </div>
           <div class="p-4 bg-rose-50 rounded-xl border border-rose-200 text-rose-950">
@@ -578,7 +697,7 @@
             Guia Operacional para a Cooperativa
           </span>
           <h3 class="text-xl font-extrabold text-stone-900 mt-1">
-            Recomendações Práticas de Fabrico (Oficina de Inhangapi)
+            Recomendações Práticas de Fabricação (Oficina de Inhangapi)
           </h3>
         </div>
 
@@ -692,6 +811,21 @@
   </footer>
 
   <script>
+    // Controle da Gaveta de Dicionário
+    function toggleDicionario() {
+      const drawer = document.getElementById('dicionario-drawer');
+      const backdrop = document.getElementById('dicionario-backdrop');
+      const isOpen = !drawer.classList.contains('translate-x-full');
+
+      if (isOpen) {
+        drawer.classList.add('translate-x-full');
+        backdrop.classList.add('hidden');
+      } else {
+        drawer.classList.remove('translate-x-full');
+        backdrop.classList.remove('hidden');
+      }
+    }
+
     function switchTab(tabId) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -1032,19 +1166,19 @@
         nomeMaterial2: 'Madeira Seca',
         corMaterial2: '#8c6239',
         maxCargas: 4,
-        explicacao: 'O Cabelo Humano cede poucos eletrões para a Madeira Seca. Ambos adquirem cargas elétricas leves, com baixa densidade de estática.'
+        explicacao: 'O Cabelo Humano cede poucos elétrons para a Madeira Seca. Ambos adquirem cargas elétricas leves, com baixa densidade de estática.'
       },
       'cabelo-pvc': {
         nomeMaterial2: 'PVC (Plástico)',
         corMaterial2: '#6366f1',
         maxCargas: 12,
-        explicacao: 'O PVC possui grande afinidade eletrónica e atrai fortemente os eletrões do cabelo. Ocorre uma separação densa de cargas!'
+        explicacao: 'O PVC possui grande afinidade eletrônica e atrai fortemente os elétrons do cabelo. Ocorre uma separação densa de cargas!'
       },
       'cabelo-teflon': {
         nomeMaterial2: 'Teflon',
         corMaterial2: '#475569',
         maxCargas: 16,
-        explicacao: 'O Teflon encontra-se na extremidade inferior da série. Arranca uma quantidade massiva de eletrões do cabelo, acumulando estática extrema.'
+        explicacao: 'O Teflon encontra-se na extremidade inferior da série. Arranca uma quantidade massiva de elétrons do cabelo, acumulando estática extrema.'
       }
     };
 
@@ -1119,7 +1253,6 @@
       ctxTribo.clearRect(0, 0, w, h);
       const info = dadosParesTribo[parTriboAtual];
 
-      // 1. Régua Triboelétrica com PVC e margem sem sobreposições
       const escalaX = w - 85; 
       const topoY = 28;
       const fimY = h - 42;
@@ -1164,7 +1297,7 @@
       ctxTribo.fillText('- Teflon', escalaX - 8, fimY + 3);
       ctxTribo.textAlign = 'left';
 
-      // 2. Blocos de atrito mecânico
+      // Blocos de atrito mecânico
       const blocoW = Math.min(w * 0.46, 210);
       const blocoH = 46;
       const centroX = 20;
@@ -1187,7 +1320,7 @@
       ctxTribo.fillStyle = '#ffffff';
       ctxTribo.fillText(`${info.nomeMaterial2} (-)`, centroX + 12 - atritoOffset, 132);
 
-      // 3. Cargas transferidas (+ vermelho, - ciano)
+      // Cargas transferidas (+ vermelho, - ciano)
       const totalCargas = Math.floor(triboProgresso * info.maxCargas);
       for (let i = 0; i < totalCargas; i++) {
         const xPos = centroX + 18 + (i * 19) % (blocoW - 32);
@@ -1201,7 +1334,7 @@
         ctxTribo.font = 'bold 7px sans-serif';
         ctxTribo.fillText('+', xPos - 2 + atritoOffset, 44);
 
-        // Eletrões (-) no Material
+        // Elétrons (-) no Material
         ctxTribo.fillStyle = '#06b6d4';
         ctxTribo.beginPath();
         ctxTribo.arc(xPos - atritoOffset, 117, 5, 0, Math.PI * 2);
@@ -1295,7 +1428,7 @@
       document.getElementById('caso-titulo').innerText = c.titulo;
       document.getElementById('caso-tag-natureza').innerText = c.natureza;
       document.getElementById('caso-observacao').innerText = c.obs;
-      document.getElementById('lab-timer-text').innerText = "Cronómetro: Em espera";
+      document.getElementById('lab-timer-text').innerText = "Cronômetro: Em espera";
       document.getElementById('lab-status-text').innerText = "Neutro";
 
       if (canvasLab) {
